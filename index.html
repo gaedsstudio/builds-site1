@@ -5655,6 +5655,49 @@ body::after{
 }
 </style>
 
+
+<style id="notice-compact-card-fix">
+/* 메인 공지 안내 카드가 너무 커서 줄임 */
+.notice-link-card{
+  margin-top:18px!important;
+  padding:18px 22px!important;
+  border-radius:18px!important;
+  min-height:0!important;
+}
+
+.notice-link-card h3{
+  font-size:20px!important;
+  line-height:1.35!important;
+  margin-bottom:5px!important;
+}
+
+.notice-link-card p{
+  font-size:14.5px!important;
+  line-height:1.55!important;
+}
+
+.notice-link-card span{
+  font-size:13px!important;
+  margin-bottom:6px!important;
+}
+
+.notice-link-card a{
+  height:40px!important;
+  padding:0 14px!important;
+  border-radius:11px!important;
+  font-size:14px!important;
+}
+
+@media(max-width:760px){
+  .notice-link-card{
+    padding:17px 18px!important;
+  }
+  .notice-link-card a{
+    width:100%!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5810,10 +5853,10 @@ body::after{
     <div class="section-link-card notice-link-card reveal">
       <div>
         <span>공지</span>
-        <h3>합격자 발표와 주요 소식은 공지에서 확인합니다.</h3>
-        <p>모집 결과, 수상 축하, 연말 결산 영상 같은 소식을 따로 정리합니다.</p>
+        <h3>공지사항</h3>
+        <p>합격자 발표와 활동 소식을 이곳에 정리합니다.</p>
       </div>
-      <a href="notice.html" target="_blank" rel="noopener">공지 보기</a>
+      <a href="notice.html" target="_blank" rel="noopener">보기</a>
     </div>
 
 </section>
