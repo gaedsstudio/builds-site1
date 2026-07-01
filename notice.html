@@ -5811,6 +5811,111 @@ body::after{
 }
 </style>
 
+
+<style id="notice-zero-members-fix">
+.notice-page .page-title p{
+  max-width:620px;
+}
+.single-notice-layout{
+  grid-template-columns:260px minmax(0,1fr)!important;
+}
+.notice-main-card{
+  padding:30px!important;
+}
+.notice-main-card h3{
+  font-size:32px!important;
+  line-height:1.22!important;
+  letter-spacing:-.055em!important;
+}
+.notice-main-card p{
+  max-width:760px;
+}
+.notice-member-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:24px;
+}
+.notice-member-list div{
+  border:1px solid #eee6df;
+  border-radius:16px;
+  background:#fffaf6;
+  padding:16px 18px;
+}
+.notice-member-list b{
+  display:block;
+  font-size:18px;
+  line-height:1.25;
+  letter-spacing:-.04em;
+  margin-bottom:6px;
+}
+.notice-member-list span{
+  color:#625d57;
+  font-size:14.5px;
+  line-height:1.55;
+}
+@media(max-width:900px){
+  .single-notice-layout{
+    grid-template-columns:1fr!important;
+  }
+}
+@media(max-width:640px){
+  .notice-main-card{
+    padding:22px!important;
+  }
+  .notice-main-card h3{
+    font-size:25px!important;
+  }
+  .notice-member-list{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+
+<style id="notice-kaggle-add-style">
+.notice-kaggle-card{
+  border-color:rgba(255,75,36,.22)!important;
+}
+.notice-score-box{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:22px;
+}
+.notice-score-box div{
+  border:1px solid #eee6df;
+  border-radius:16px;
+  background:#fffaf6;
+  padding:16px 18px;
+}
+.notice-score-box span{
+  display:block;
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+.notice-score-box b{
+  display:block;
+  color:#111;
+  font-size:20px;
+  line-height:1.15;
+  letter-spacing:-.04em;
+}
+.notice-kaggle-card p + p{
+  margin-top:8px;
+}
+@media(max-width:640px){
+  .notice-score-box{
+    grid-template-columns:1fr;
+  }
+  .notice-actions a{
+    width:100%;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5831,66 +5936,67 @@ body::after{
   </div>
 </div></nav>
 
+
 <section id="notice-page" class="notice-page para-page">
   <div class="wrap">
     <div class="page-title reveal">
       <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
       <span>공지</span>
       <h2>공지사항</h2>
-      <p>모집 결과, 수상 소식, 연말 결산 같은 주요 안내를 올리는 페이지입니다.</p>
+      <p>BUILDS의 주요 소식을 정리합니다.</p>
     </div>
 
-    <div class="notice-layout">
+    <div class="notice-layout single-notice-layout">
       <aside class="notice-side reveal">
-        <b>분류</b>
-        <a href="#recruit">합격자 공지 <span>01</span></a>
-        <a href="#award">수상 축하 <span>02</span></a>
-        <a href="#recap">연말 결산 <span>03</span></a>
+        <b>공지 목록</b>
+        <a href="#notice-001">0기 멤버 가입 <span>01</span></a>
+        <a href="#notice-002">Kaggle 1476등 <span>02</span></a>
       </aside>
 
       <main class="notice-list">
-        <article class="notice-card notice-empty reveal" id="recruit">
+        <article class="notice-card reveal notice-main-card" id="notice-001">
           <div class="notice-meta">
-            <time>추후 공개</time>
-            <span class="notice-tag">합격자 공지</span>
+            <time>2026.07.01</time>
+            <span class="notice-tag">0기 멤버</span>
           </div>
-          <h3>BUILDS 1기 합격자 발표</h3>
-          <p>1기 모집이 끝나면 합격자 안내와 이후 일정이 이곳에 올라옵니다.</p>
+          <h3>0기 멤버들의 가입을 축하합니다</h3>
+          <p>BUILDS 0기 활동을 함께 시작할 멤버들이 합류했습니다. 각자의 역할로 프로젝트와 활동 기록을 만들어갈 예정입니다.</p>
+
+          <div class="notice-member-list">
+            <div><b>ganbi</b><span>부장 · 백엔드 개발 · 기획</span></div>
+            <div><b>보네어</b><span>기획 · 검수</span></div>
+            <div><b>louisuu</b><span>부부장 · 프론트엔드 개발 · 운영 보조</span></div>
+            <div><b>뒤틀린황천의진윤태</b><span>기획</span></div>
+            <div><b>K.C</b><span>기획</span></div>
+          </div>
         </article>
 
-        <article class="notice-card notice-empty reveal" id="award">
+        <article class="notice-card reveal notice-kaggle-card" id="notice-002">
           <div class="notice-meta">
-            <time>추후 업데이트</time>
-            <span class="notice-tag">수상 축하</span>
+            <time>2026.07.01</time>
+            <span class="notice-tag">활동 기록</span>
           </div>
-          <h3>수상 소식</h3>
-          <p>BUILDS 멤버가 대회나 외부 활동에서 좋은 결과를 얻으면 이곳에 축하 공지를 올립니다.</p>
+          <h3>Kaggle Titanic 1476등을 기록했습니다</h3>
+          <p>ganbi가 Kaggle Titanic 생존자 예측 프로젝트를 진행해 최종 점수 0.78947, 순위 1476등을 기록했습니다. 처음 7000등대에서 시작해 데이터 전처리와 가족 그룹 규칙을 적용하며 점수를 올렸습니다.</p>
+          <p>이번 기록은 BUILDS 0기의 첫 데이터 분석 활동 기록으로 남깁니다.</p>
+
+          <div class="notice-score-box">
+            <div><span>점수</span><b>0.78947</b></div>
+            <div><span>순위</span><b>1476등</b></div>
+            <div><span>작성자</span><b>ganbi</b></div>
+          </div>
+
+          <div class="notice-actions">
+            <a href="docs.html" target="_blank" rel="noopener">보고서 보기</a>
+            <a class="sub" href="https://docs.google.com/document/d/1BSo37Y3UcF5eJcnjZkWUOOD9rOAieQTO0s8kHeTQEK0/edit?usp=drivesdk" target="_blank" rel="noopener">논문 링크</a>
+          </div>
         </article>
 
-        <article class="notice-card notice-empty reveal" id="recap">
-          <div class="notice-meta">
-            <time>2026.12 예정</time>
-            <span class="notice-tag">연말 결산</span>
-          </div>
-          <h3>2026 연말 결산 영상</h3>
-          <p>0기 활동을 영상으로 정리하게 되면 링크와 설명을 이곳에 추가합니다.</p>
-        </article>
-
-        <div class="notice-template reveal">
-          <h3>나중에 공지 추가할 때 형식</h3>
-          <pre>&lt;article class="notice-card reveal"&gt;
-  &lt;div class="notice-meta"&gt;
-    &lt;time&gt;2026.00.00&lt;/time&gt;
-    &lt;span class="notice-tag"&gt;분류&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;h3&gt;공지 제목&lt;/h3&gt;
-  &lt;p&gt;공지 내용&lt;/p&gt;
-&lt;/article&gt;</pre>
-        </div>
       </main>
     </div>
   </div>
 </section>
+
 
 <footer><div class="wrap foot"><div class="foot-brand"><a class="logo" href="#top"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#262626"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a><p class="foot-tag">만들면서 배우는 개발 동아리</p></div><div class="foot-right"><div class="links"><a href="#">instagram</a><a href="#">github</a><a href="#">blog</a></div><span class="foot-copy">© 2026 BUILDS</span></div></div></footer>
 
