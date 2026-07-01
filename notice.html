@@ -5974,6 +5974,117 @@ body::after{
 }
 </style>
 
+
+<style id="notice-latest-style-v3">
+.latest-notice-layout{
+  grid-template-columns:260px minmax(0,1fr)!important;
+}
+
+.latest-notice-list{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:14px!important;
+}
+
+.latest-notice{
+  border-color:rgba(255,75,36,.25)!important;
+}
+
+.notice-card{
+  position:relative;
+}
+
+.notice-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:24px;
+  bottom:24px;
+  width:3px;
+  border-radius:999px;
+  background:#eee6df;
+}
+
+.latest-notice::before{
+  background:#ff4b24;
+}
+
+.notice-meta{
+  gap:8px!important;
+}
+
+.notice-tag{
+  border-radius:999px!important;
+}
+
+.notice-score-box{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:22px;
+}
+
+.notice-score-box div{
+  border:1px solid #eee6df;
+  border-radius:16px;
+  background:#fffaf6;
+  padding:16px 18px;
+}
+
+.notice-score-box span{
+  display:block;
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.notice-score-box b{
+  display:block;
+  color:#111;
+  font-size:20px;
+  line-height:1.15;
+  letter-spacing:-.04em;
+}
+
+.notice-actions{
+  margin-top:18px;
+}
+
+.notice-actions a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 14px;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:900px){
+  .latest-notice-layout{
+    grid-template-columns:1fr!important;
+  }
+}
+
+@media(max-width:640px){
+  .notice-card::before{
+    top:20px;
+    bottom:20px;
+  }
+
+  .notice-score-box{
+    grid-template-columns:1fr;
+  }
+
+  .notice-actions a{
+    width:100%;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5995,41 +6106,26 @@ body::after{
 </div></nav>
 
 
+
 <section id="notice-page" class="notice-page para-page">
   <div class="wrap">
     <div class="page-title reveal">
       <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
       <span>공지</span>
       <h2>공지사항</h2>
-      <p>BUILDS의 주요 소식을 정리합니다.</p>
+      <p>BUILDS 0기의 소식을 최신순으로 정리합니다.</p>
     </div>
 
-    <div class="notice-layout single-notice-layout">
+    <div class="notice-layout latest-notice-layout">
       <aside class="notice-side reveal">
-        <b>공지 목록</b>
-        <a href="#notice-001">0기 멤버 가입 <span>01</span></a>
-        <a href="#notice-002">Kaggle 1476등 <span>02</span></a>
+        <b>공지 분류</b>
+        <a href="#latest">최신 공지 <span>NEW</span></a>
+        <a href="#member-notice">멤버 소식 <span>01</span></a>
+        <a href="#record-notice">활동 기록 <span>02</span></a>
       </aside>
 
-      <main class="notice-list">
-        <article class="notice-card reveal notice-main-card" id="notice-001">
-          <div class="notice-meta">
-            <time>2026.07.01</time>
-            <span class="notice-tag">0기 멤버</span>
-          </div>
-          <h3>0기 멤버들의 가입을 축하합니다</h3>
-          <p>BUILDS 0기 활동을 함께 시작할 멤버들이 합류했습니다. 각자의 역할로 프로젝트와 활동 기록을 만들어갈 예정입니다.</p>
-
-          <div class="notice-member-list">
-            <div><b>ganbi</b><span>부장 · 백엔드 개발 · 기획</span></div>
-            <div><b>보네어</b><span>기획 · 검수</span></div>
-            <div><b>louisuu</b><span>부부장 · 프론트엔드 개발 · 운영 보조</span></div>
-            <div><b>뒤틀린황천의진윤태</b><span>기획</span></div>
-            <div><b>K.C</b><span>기획</span></div>
-          </div>
-        </article>
-
-        <article class="notice-card reveal notice-kaggle-card" id="notice-002">
+      <main class="notice-list latest-notice-list" id="latest">
+        <article class="notice-card reveal notice-kaggle-card latest-notice" id="record-notice">
           <div class="notice-meta">
             <time>2026.07.01</time>
             <span class="notice-tag">활동 기록</span>
@@ -6049,10 +6145,27 @@ body::after{
           </div>
         </article>
 
+        <article class="notice-card reveal notice-main-card" id="member-notice">
+          <div class="notice-meta">
+            <time>2026.07.01</time>
+            <span class="notice-tag">멤버 소식</span>
+          </div>
+          <h3>0기 멤버들의 가입을 축하합니다</h3>
+          <p>BUILDS 0기 활동을 함께 시작할 멤버들이 합류했습니다. 각자의 역할로 프로젝트와 활동 기록을 만들어갈 예정입니다.</p>
+
+          <div class="notice-member-list">
+            <div><b>ganbi</b><span>부장 · 백엔드 개발 · 기획</span></div>
+            <div><b>보네어</b><span>기획 · 검수</span></div>
+            <div><b>louisuu</b><span>부부장 · 프론트엔드 개발 · 운영 보조</span></div>
+            <div><b>뒤틀린황천의진윤태</b><span>기획</span></div>
+            <div><b>K.C</b><span>기획</span></div>
+          </div>
+        </article>
       </main>
     </div>
   </div>
 </section>
+
 
 
 <footer><div class="wrap foot"><div class="foot-brand"><a class="logo" href="#top"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#262626"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a><p class="foot-tag">만들면서 배우는 개발 동아리</p></div><div class="foot-right"><div class="links"><a href="#">instagram</a><a href="#">github</a><a href="#">blog</a></div><span class="foot-copy">© 2026 BUILDS</span></div></div></footer>
