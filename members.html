@@ -4668,6 +4668,229 @@ img,video,canvas,svg{
 }
 </style>
 
+
+<style id="less-ai-small-labels">
+/* 작은 빨간 점/AI스러운 pill 느낌 줄이기 */
+.page-title > span,
+.section-title .eyebrow,
+.faq-left .eyebrow,
+.doc-state,
+.month-acc-list li em,
+.acc-ul li em {
+  letter-spacing: -0.02em !important;
+}
+
+/* 문서 같은 섹션 라벨: 빨간 점 제거, 그냥 작은 회색 라벨로 */
+.page-title > span::before {
+  display: none !important;
+  content: none !important;
+}
+
+.page-title > span {
+  display: block !important;
+  color: #7a746d !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+/* 작성 중 같은 상태 배지: 과한 빨간 pill 제거 */
+.doc-state {
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #8a827a !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* 활동 기록의 완료/예정 pill도 조금 덜 꾸민 느낌으로 */
+.month-acc-list li em,
+.acc-ul li em {
+  background: transparent !important;
+  border: 0 !important;
+  color: #8a827a !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* 카드 헤더 오른쪽 상태가 너무 튀지 않게 */
+.doc-card-head {
+  grid-template-columns: 80px 1fr auto !important;
+}
+
+@media (max-width: 900px) {
+  .doc-card-head {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+
+
+<style id="final-less-ai-polish">
+/* ===== final polish: 덜 AI스럽게 정리 ===== */
+
+/* 과한 글로우/그라데이션/배지 느낌 줄이기 */
+body{
+  background:#fbf8f3!important;
+}
+body::after{
+  opacity:.28!important;
+}
+.nav{
+  background:rgba(251,248,243,.92)!important;
+  box-shadow:none!important;
+}
+.menu a:last-child{
+  box-shadow:none!important;
+}
+.hero::before{
+  opacity:.35!important;
+  filter:blur(8px)!important;
+}
+.hero-prompt{
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+.section-title .eyebrow,
+.faq-left .eyebrow,
+.page-title > span,
+.titanic-record-copy span,
+.para-card-copy small,
+.month-acc-list li span b{
+  color:#7a746d!important;
+  font-weight:750!important;
+  letter-spacing:-.02em!important;
+}
+.page-title > span::before{
+  display:none!important;
+}
+.section-title .eyebrow::before,
+.faq-left .eyebrow::before{
+  display:none!important;
+}
+.section-title h2,
+.faq-left h2,
+.page-title h2{
+  letter-spacing:-.055em!important;
+}
+.mem-card,
+.field-card,
+.work-card,
+.acc-yr,
+.section-link-card,
+.para-member-card,
+.report-card,
+.docs-side{
+  box-shadow:0 1px 0 rgba(17,17,17,.03)!important;
+  background:#fffdf9!important;
+}
+.mem-card:hover,
+.field-card:hover,
+.work-card:hover,
+.para-member-card:hover,
+.section-link-card:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 10px 28px rgba(17,17,17,.055)!important;
+}
+.mem-role-tag,
+.vice-tag,
+.para-member-top span{
+  border-radius:8px!important;
+  background:#111!important;
+  color:#fff!important;
+  padding:4px 9px!important;
+}
+.mem-role-tag::before,
+.vice-tag::before,
+.para-member-top span::before{
+  display:none!important;
+}
+.doc-state,
+.report-state,
+.month-acc-list li em,
+.acc-ul li em{
+  background:transparent!important;
+  border:0!important;
+  color:#8a827a!important;
+  padding:0!important;
+  border-radius:0!important;
+  font-weight:700!important;
+}
+.btn,
+.section-link-card a,
+.titanic-record-copy a,
+.docs-top-actions a{
+  border-radius:12px!important;
+  box-shadow:none!important;
+}
+.section-link-card::before{
+  display:none!important;
+}
+
+/* 문구가 너무 광고처럼 보이지 않게 간격 조정 */
+.section-link-card h3{
+  font-size:21px!important;
+  line-height:1.35!important;
+}
+.section-link-card p{
+  font-size:15px!important;
+  color:#5f5a54!important;
+}
+.lead,
+.mem-intro,
+.page-title p,
+.report-block p,
+.para-member-bio,
+.para-card-copy p{
+  word-break:keep-all;
+}
+
+/* 갤러리 카드의 과한 효과 줄이기 */
+.para-gallery-card{
+  box-shadow:none!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+}
+.para-gallery-card.empty::before,
+.mosaic-placeholder::before{
+  opacity:.18!important;
+}
+.para-card-copy small{
+  background:rgba(0,0,0,.38)!important;
+  color:#fff!important;
+}
+
+/* 문서 페이지 보고서 가독성 */
+.report-card{
+  border-color:#e8ded3!important;
+}
+.report-head h3,
+.report-block h4{
+  letter-spacing:-.045em!important;
+}
+.report-result-grid div{
+  background:#fffaf6!important;
+}
+
+/* 모바일 여백 안정화 */
+@media(max-width:760px){
+  .hero-en,
+  .hero-ko,
+  h1,
+  .page-title h2,
+  .section-title h2{
+    letter-spacing:-.065em!important;
+  }
+  .menu a:last-child{
+    border-radius:12px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -4693,7 +4916,7 @@ img,video,canvas,svg{
   <div class="wrap">
     <div class="page-title reveal">
       <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
-      <span>멤버</span>
+      <span>0기 멤버</span>
       <h2>0기 멤버 소개</h2>
       <p>BUILDS의 탄생과 함께한 0기입니다. 멤버별 역할과 간단한 소개만 담백하게 정리했습니다.</p>
     </div>
