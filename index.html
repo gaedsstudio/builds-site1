@@ -5827,6 +5827,178 @@ body::after{
 }
 </style>
 
+
+<style id="awards-clean-final-fix">
+/* 기록 섹션 깨짐 방지 */
+#awards{
+  padding-top:110px!important;
+  padding-bottom:110px!important;
+  min-height:0!important;
+}
+
+#awards .record-accordion{
+  display:block!important;
+  margin:0 0 20px!important;
+}
+
+#awards .acc-yr{
+  border:1px solid #e8ded3!important;
+  border-radius:22px!important;
+  background:#fffdf9!important;
+  overflow:hidden!important;
+  box-shadow:0 1px 0 rgba(17,17,17,.03)!important;
+}
+
+#awards .acc-yr-head{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  padding:22px 26px!important;
+  border:0!important;
+  background:transparent!important;
+  cursor:pointer!important;
+}
+
+#awards .acc-yr-label{
+  font-size:34px!important;
+  font-weight:900!important;
+  letter-spacing:-.05em!important;
+  color:#111!important;
+}
+
+#awards .acc-yr-panel{
+  display:block!important;
+  padding:0 26px 18px!important;
+}
+
+#awards .month-acc-list{
+  list-style:none!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+#awards .month-acc-list li{
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  gap:16px!important;
+  align-items:center!important;
+  padding:14px 0!important;
+  border-top:1px solid #eee6df!important;
+}
+
+#awards .month-acc-list li span{
+  color:#222!important;
+  font-size:15.5px!important;
+  line-height:1.55!important;
+  word-break:keep-all!important;
+}
+
+#awards .month-acc-list li b{
+  color:#817a73!important;
+  margin-right:8px!important;
+}
+
+#awards .month-acc-list li em{
+  color:#8a827a!important;
+  font-style:normal!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+}
+
+/* 이동 카드 3개 */
+.quick-link-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  margin-top:20px!important;
+}
+
+.quick-link-card{
+  display:block!important;
+  min-height:150px!important;
+  border:1px solid #e8ded3!important;
+  border-radius:20px!important;
+  background:#fffdf9!important;
+  padding:22px!important;
+  text-decoration:none!important;
+  color:#111!important;
+  box-shadow:0 1px 0 rgba(17,17,17,.03)!important;
+}
+
+.quick-link-card span{
+  display:block!important;
+  color:#817a73!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  margin-bottom:12px!important;
+}
+
+.quick-link-card b{
+  display:block!important;
+  color:#111!important;
+  font-size:24px!important;
+  line-height:1.25!important;
+  letter-spacing:-.05em!important;
+  margin-bottom:8px!important;
+}
+
+.quick-link-card p{
+  color:#5a554f!important;
+  font-size:14.5px!important;
+  line-height:1.6!important;
+  margin:0!important;
+  word-break:keep-all!important;
+}
+
+.section-link-card,
+.notice-link-card,
+.docs-link-card,
+.member-link-card{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  .quick-link-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  #awards .month-acc-list li{
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+  }
+
+  #awards .month-acc-list li em{
+    justify-self:start!important;
+  }
+}
+
+@media(max-width:640px){
+  #awards{
+    padding-top:78px!important;
+    padding-bottom:78px!important;
+  }
+
+  #awards .acc-yr-head{
+    padding:20px!important;
+  }
+
+  #awards .acc-yr-label{
+    font-size:28px!important;
+  }
+
+  #awards .acc-yr-panel{
+    padding:0 20px 16px!important;
+  }
+
+  .quick-link-card{
+    min-height:auto!important;
+    padding:20px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5852,17 +6024,6 @@ body::after{
 <section id="about"><div class="wrap"><div class="section-title"><div class="eyebrow">소개</div><h2>어떤 동아리냐면</h2></div><p class="big">처음부터 잘하는 사람만 모이는 곳이 아니라, 같이 만들면서 조금씩 결과물을 쌓아가는 동아리예요.</p><div class="cols"><div><div class="label">HOW WE STARTED</div><p>BUILDS는 2026년 6월, 개발에 관심 있는 학생들이 모여 비공식으로 시작했습니다. 각자 해보고 싶은 프로젝트를 정하고, 서로 피드백하면서 완성해 가는 방식으로 활동합니다.</p></div><div><div class="label">WHAT WE VALUE</div><p>가장 중요하게 보는 건 실제로 끝까지 만들어 보는 경험입니다. 게임·앱·웹·하드웨어 중 관심 있는 분야를 정해 제작하고, 가능하면 대회와 공모전에도 도전합니다.</p></div></div></div></section>
 <section><div class="wrap"><div class="section-title"><div class="eyebrow">숫자</div><h2>지금의 BUILDS</h2></div><div class="stat3"><div class="stat-cell"><b>5<span class="point">명</span></b><span class="stat-k">부원</span><p>비공식 준비 팀으로 시작</p></div><div class="stat-cell"><b>4<span class="point">분야</span></b><span class="stat-k">게임 · 앱 · 웹 · 하드웨어</span><p>관심 분야를 직접 골라 제작</p></div><div class="stat-cell"><b>2026<span class="point">.</span></b><span class="stat-k">설립</span><p>이제 막 첫걸음을 뗐어요</p></div></div></div></section>
 
-<section id="members">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="eyebrow">멤버</div>
-      <h2>0기 멤버</h2>
-    </div>
-    <p class="mem-intro">BUILDS 0기 멤버 소개입니다. 자세한 내용은 멤버 페이지에 따로 정리했습니다.</p>
-<a href="members.html" target="_blank" rel="noopener">멤버 보기</a>
-    </div>
-  </div>
-</section>
 
 <section id="fields"><div class="wrap"><div class="section-title"><div class="eyebrow">분야</div><h2>우리가 만드는 것</h2></div><p class="field-intro">한 분야에 갇히지 않아요. 관심 가는 걸 골라, 팀으로 직접 만들어 봅니다.</p><div class="field-grid"><article class="field-card"><div class="field-top"><span class="field-no">01</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="15" y="24" width="66" height="46" rx="18" fill="#111"/><rect x="28" y="42" width="21" height="6" rx="3" fill="#fff"/><rect x="35.5" y="34.5" width="6" height="21" rx="3" fill="#fff"/><circle cx="62" cy="43" r="6" fill="#ff4b24"/><circle cx="71" cy="52" r="6" fill="#ff4b24"/><path d="M20 60c7 9 21 12 28 3" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".22"/></svg></div><h3>Game</h3><p>플레이 가능한 게임과 프로토타입을 직접 제작합니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">02</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="28" y="12" width="40" height="72" rx="16" fill="#111"/><rect x="34" y="22" width="28" height="46" rx="6" fill="#fff"/><circle cx="48" cy="75" r="5" fill="#ff4b24"/><circle cx="48" cy="18" r="2.4" fill="#fff"/></svg></div><h3>App</h3><p>문제를 해결하는 모바일·데스크탑 앱을 만듭니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">03</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="16" y="22" width="64" height="48" rx="10" fill="#111"/><rect x="22" y="31" width="52" height="33" rx="5" fill="#fff"/><rect x="29" y="41" width="38" height="6" rx="3" fill="#ff4b24"/><rect x="29" y="53" width="24" height="5" rx="2.5" fill="#e7e7e7"/></svg></div><h3>Web</h3><p>동아리 페이지부터 서비스형 웹까지 구현합니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">04</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="26" y="26" width="44" height="44" rx="12" fill="#111"/><rect x="37" y="37" width="22" height="22" rx="7" fill="#ff4b24"/><path d="M34 14v12M48 14v12M62 14v12M34 70v12M48 70v12M62 70v12M14 34h12M14 48h12M14 62h12M70 34h12M70 48h12M70 62h12" stroke="#111" stroke-width="6" stroke-linecap="round"/></svg></div><h3>Hardware</h3><p>센서, 보드, 임베디드 프로젝트로 확장합니다.</p></article></div></div></section>
 
@@ -5913,14 +6074,16 @@ body::after{
 
 
 
+
 <section id="awards" class="awards-sec">
   <div class="wrap">
-    <div class="section-title">
+    <div class="section-title reveal">
       <div class="eyebrow">기록</div>
       <h2>2026 활동 기록</h2>
+      <p>BUILDS 0기의 활동을 월별로 정리합니다.</p>
     </div>
 
-    <div class="acc-list record-accordion">
+    <div class="acc-list record-accordion reveal">
       <div class="acc-yr open">
         <button class="acc-yr-head" type="button">
           <span class="acc-yr-label">2026</span>
@@ -5928,42 +6091,14 @@ body::after{
         </button>
         <div class="acc-yr-panel">
           <ul class="acc-ul month-acc-list">
-            <li><span><b>07월</b> 2026 AI 인사이트 포럼 참가 신청</span><em>완료</em></li>
-            <li><span><b>07월</b> Kaggle Titanic 생존자 예측 프로젝트 · 1476등</span><em>활동</em></li>
-            <li><span><b>08월</b> 0기 첫 프로젝트 주제와 역할 정리</span><em>예정</em></li>
-            <li><span><b>09월</b> 게임·앱·웹·하드웨어 프로젝트 제작 진행</span><em>예정</em></li>
-            <li><span><b>10월</b> 프로젝트 중간 점검과 개선점 정리</span><em>예정</em></li>
-            <li><span><b>11월</b> 결과물 기록 및 포트폴리오 정리</span><em>예정</em></li>
-            <li><span><b>12월</b> 2026년 0기 활동 회고</span><em>예정</em></li>
+            <li><span><b>06월</b> BUILDS 비공식 0기 준비 시작</span><em>시작</em></li>
+            <li><span><b>07월</b> 0기 멤버 합류 공지</span><em>공지</em></li>
+            <li><span><b>07월</b> Kaggle Titanic 생존자 예측 프로젝트 · 1476등</span><em>기록</em></li>
+            <li><span><b>07월</b> 2026 AI 인사이트 포럼 참가 신청</span><em>활동</em></li>
           </ul>
         </div>
       </div>
     </div>
-
-    <div class="titanic-site-record reveal">
-      <div class="titanic-shot">
-        <img src="data:image/webp;base64,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" alt="Kaggle Titanic 제출 결과 캡처">
-      </div>
-      <div class="titanic-record-copy">
-        <span>활동 기록</span>
-        <h3>Kaggle Titanic 생존자 예측 프로젝트</h3>
-        <p>여자·아이 가족 그룹 규칙을 적용해 점수 0.78947, 순위 1476등을 기록했습니다. 실제 Kaggle 리더보드에 제출해 얻은 활동 기록입니다.</p>
-        <a href="docs.html" target="_blank" rel="noopener">보고서 보기</a>
-      </div>
-    </div>
-<a href="gallery.html" target="_blank" rel="noopener">보기</a>
-    </div>
-
-<a href="notice.html" target="_blank" rel="noopener">보기</a>
-    </div>
-
-      <a href="docs.html" target="_blank" rel="noopener">문서 보기</a>
-    </div>
-
-  </div>
-<a href="notice.html" target="_blank" rel="noopener">보기</a>
-    </div>
-
 
     <div class="quick-link-grid reveal">
       <a class="quick-link-card" href="gallery.html" target="_blank" rel="noopener">
@@ -5984,16 +6119,8 @@ body::after{
         <p>0기 소식과 활동 기록을 정리합니다.</p>
       </a>
     </div>
-
+  </div>
 </section>
-
-
-
-
-
-
-
-
 
 <section id="faq" class="faq">
   <div class="wrap faq-wrap">
