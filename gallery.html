@@ -4891,6 +4891,58 @@ body::after{
 }
 </style>
 
+
+<style id="subpage-polish-v2">
+/* 서브 페이지 공통 디테일 개선 */
+.page-title{
+  padding-top:12px!important;
+}
+.page-title h2{
+  letter-spacing:-.07em!important;
+}
+.back-link{
+  transition:background .18s ease, transform .18s ease!important;
+}
+.back-link:hover{
+  background:#fff3ec!important;
+  transform:translateX(-2px)!important;
+}
+
+/* 카드에 너무 빈 느낌이 나지 않도록 */
+.para-member-card,
+.notice-card,
+.report-card,
+.para-gallery-card,
+.docs-side,
+.notice-side,
+.member-award-card,
+.club-award-card{
+  box-shadow:0 1px 0 rgba(17,17,17,.035),0 12px 30px rgba(17,17,17,.035)!important;
+}
+
+/* 서브페이지 네비 마지막 버튼 통일 */
+.menu a:last-child{
+  background:#111!important;
+  color:#fff!important;
+  border-radius:12px!important;
+  padding:10px 15px!important;
+}
+</style>
+
+
+<style id="gallery-polish-v2">
+.para-gallery-card{
+  transition:transform .22s ease, filter .22s ease!important;
+}
+.para-gallery-card:hover{
+  transform:translateY(-3px)!important;
+  filter:saturate(1.04)!important;
+}
+.para-card-copy h3{
+  text-shadow:0 2px 16px rgba(0,0,0,.25)!important;
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
