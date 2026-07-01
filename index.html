@@ -5077,6 +5077,193 @@ body::after{
 }
 </style>
 
+
+<style id="faq-activity-final-fix">
+/* FAQ: 질문이 세로로 쪼개지는 문제 수정 */
+.faq-wrap{
+  display:grid!important;
+  grid-template-columns:minmax(220px,320px) minmax(0,1fr)!important;
+  gap:44px!important;
+  align-items:start!important;
+}
+
+.qa-list{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  min-width:0!important;
+}
+
+.qa{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  border:1px solid #e8ded3!important;
+  border-radius:16px!important;
+  background:#fffdf9!important;
+  overflow:hidden!important;
+  box-shadow:0 1px 0 rgba(17,17,17,.03)!important;
+}
+
+.qa button{
+  all:unset!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  padding:18px 20px!important;
+  cursor:pointer!important;
+  color:#111!important;
+}
+
+.qa button span{
+  display:block!important;
+  min-width:0!important;
+  font-size:17px!important;
+  line-height:1.45!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+  word-break:keep-all!important;
+}
+
+.qa button::after{
+  content:"+"!important;
+  flex:0 0 auto!important;
+  color:#8a827a!important;
+  font-size:20px!important;
+  line-height:1!important;
+  font-weight:500!important;
+}
+
+.qa.open button::after{
+  content:"–"!important;
+}
+
+.qa div{
+  display:none!important;
+  padding:0 20px 18px!important;
+}
+
+.qa.open div{
+  display:block!important;
+}
+
+.qa p{
+  max-width:780px!important;
+  color:#5a554f!important;
+  font-size:15px!important;
+  line-height:1.75!important;
+  margin:0!important;
+  word-break:keep-all!important;
+}
+
+/* 활동 기록: 앞으로 여러 개 넣기 좋은 compact list */
+.activity-log{
+  border:1px solid #e8ded3;
+  border-radius:22px;
+  background:#fffdf9;
+  overflow:hidden;
+  box-shadow:0 1px 0 rgba(17,17,17,.03);
+}
+
+.activity-log-item{
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr) 64px;
+  gap:22px;
+  align-items:start;
+  padding:20px 22px;
+  border-top:1px solid #eee6df;
+}
+
+.activity-log-item:first-child{
+  border-top:0;
+}
+
+.activity-log-item time{
+  color:#817a73;
+  font-size:14px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.activity-log-item h3{
+  font-size:19px;
+  line-height:1.35;
+  letter-spacing:-.04em;
+  margin-bottom:5px;
+}
+
+.activity-log-item p{
+  color:#5f5a54;
+  font-size:14.5px;
+  line-height:1.65;
+  word-break:keep-all;
+}
+
+.activity-log-item > span{
+  justify-self:end;
+  color:#8a827a;
+  font-size:13px;
+  font-weight:800;
+}
+
+.activity-log-item.muted{
+  background:#fffaf6;
+}
+
+.activity-log-item.muted h3,
+.activity-log-item.muted p,
+.activity-log-item.muted time,
+.activity-log-item.muted > span{
+  color:#9a938b;
+}
+
+/* 기존 timeline 스타일 충돌 방지 */
+.tline,
+.tline-item,
+.tline-body{
+  all:unset;
+}
+
+@media(max-width:900px){
+  .faq-wrap{
+    grid-template-columns:1fr!important;
+    gap:24px!important;
+  }
+
+  .activity-log-item{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:18px;
+  }
+
+  .activity-log-item > span{
+    justify-self:start;
+  }
+}
+
+@media(max-width:640px){
+  .qa button{
+    padding:17px 18px!important;
+  }
+
+  .qa button span{
+    font-size:16px!important;
+  }
+
+  .qa div{
+    padding:0 18px 17px!important;
+  }
+
+  .qa p{
+    font-size:14.5px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5122,8 +5309,46 @@ body::after{
 </section>
 
 <section id="fields"><div class="wrap"><div class="section-title"><div class="eyebrow">분야</div><h2>우리가 만드는 것</h2></div><p class="field-intro">한 분야에 갇히지 않아요. 관심 가는 걸 골라, 팀으로 직접 만들어 봅니다.</p><div class="field-grid"><article class="field-card"><div class="field-top"><span class="field-no">01</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="15" y="24" width="66" height="46" rx="18" fill="#111"/><rect x="28" y="42" width="21" height="6" rx="3" fill="#fff"/><rect x="35.5" y="34.5" width="6" height="21" rx="3" fill="#fff"/><circle cx="62" cy="43" r="6" fill="#ff4b24"/><circle cx="71" cy="52" r="6" fill="#ff4b24"/><path d="M20 60c7 9 21 12 28 3" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".22"/></svg></div><h3>Game</h3><p>플레이 가능한 게임과 프로토타입을 직접 제작합니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">02</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="28" y="12" width="40" height="72" rx="16" fill="#111"/><rect x="34" y="22" width="28" height="46" rx="6" fill="#fff"/><circle cx="48" cy="75" r="5" fill="#ff4b24"/><circle cx="48" cy="18" r="2.4" fill="#fff"/></svg></div><h3>App</h3><p>문제를 해결하는 모바일·데스크탑 앱을 만듭니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">03</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="16" y="22" width="64" height="48" rx="10" fill="#111"/><rect x="22" y="31" width="52" height="33" rx="5" fill="#fff"/><rect x="29" y="41" width="38" height="6" rx="3" fill="#ff4b24"/><rect x="29" y="53" width="24" height="5" rx="2.5" fill="#e7e7e7"/></svg></div><h3>Web</h3><p>동아리 페이지부터 서비스형 웹까지 구현합니다.</p></article><article class="field-card"><div class="field-top"><span class="field-no">04</span><svg class="field-svg" viewBox="0 0 96 96" aria-hidden="true"><rect x="26" y="26" width="44" height="44" rx="12" fill="#111"/><rect x="37" y="37" width="22" height="22" rx="7" fill="#ff4b24"/><path d="M34 14v12M48 14v12M62 14v12M34 70v12M48 70v12M62 70v12M14 34h12M14 48h12M14 62h12M70 34h12M70 48h12M70 62h12" stroke="#111" stroke-width="6" stroke-linecap="round"/></svg></div><h3>Hardware</h3><p>센서, 보드, 임베디드 프로젝트로 확장합니다.</p></article></div></div></section>
-<section id="timeline"><div class="wrap"><div class="section-title"><div class="eyebrow">활동</div><h2>어떻게 시작했나</h2></div><div class="tline"><div class="tline-item"><div class="tline-dot"></div><div class="tline-body"><span class="tline-date">2026.06</span><h3>비공식 준비 팀 시작</h3><p>개발에 관심 있는 학생들이 모여 BUILDS의 방향을 잡기 시작했습니다.</p></div></div>
-        <div class="tline-item"><div class="tline-dot"></div><div class="tline-body"><span class="tline-date">2026.07</span><h3>Kaggle Titanic 프로젝트 기록</h3><p>타이타닉 생존자 예측 문제를 제출해 점수 0.78947, 순위 1476등을 기록했습니다.</p></div></div><div class="tline-item upcoming"><div class="tline-dot"></div><div class="tline-body"><span class="tline-date">NEXT</span><h3>모집과 첫 공개</h3><p>활동 소식과 1기 지원 일정을 공개할 예정입니다.</p></div></div></div></div></section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">활동</div>
+      <h2>2026 활동 기록</h2>
+      <p>0기 활동은 짧게 쌓고, 확인 가능한 기록 위주로 남깁니다.</p>
+    </div>
+
+    <div class="activity-log reveal">
+      <article class="activity-log-item">
+        <time>2026.06</time>
+        <div>
+          <h3>BUILDS 비공식 0기 시작</h3>
+          <p>정식 기수 전에 먼저 모여 사이트, 활동 방향, 프로젝트 기록 방식을 준비했습니다.</p>
+        </div>
+        <span>시작</span>
+      </article>
+
+      <article class="activity-log-item">
+        <time>2026.07</time>
+        <div>
+          <h3>Kaggle Titanic 1476등 기록</h3>
+          <p>타이타닉 생존자 예측 프로젝트에서 점수 0.78947, 순위 1476등을 기록했습니다.</p>
+        </div>
+        <span>기록</span>
+      </article>
+
+      <article class="activity-log-item muted">
+        <time>2026.08</time>
+        <div>
+          <h3>다음 활동 추가 예정</h3>
+          <p>외부 활동, 프로젝트 제작, 보고서가 생기면 이곳에 한 줄씩 추가합니다.</p>
+        </div>
+        <span>예정</span>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <section id="awards" class="awards-sec">
   <div class="wrap">
@@ -5221,67 +5446,69 @@ body::after{
 
 
 
+
 <section id="faq" class="faq">
   <div class="wrap faq-wrap">
     <div class="faq-left reveal">
       <div class="eyebrow">Q&A</div>
       <h2>자주 묻는 질문</h2>
-      <p>지원 전에 많이 물어볼 만한 내용을 먼저 정리했습니다.</p>
+      <p>지원 전에 자주 나올 만한 질문만 정리했습니다.</p>
     </div>
 
     <div class="qa-list">
-      <div class="qa reveal">
-        <button type="button">개발을 잘해야 들어갈 수 있나요?</button>
-        <div><p>아니요. 처음부터 잘하는 사람보다 직접 해보려는 사람이 더 중요합니다. 다만 끝까지 만들어보려는 태도는 필요합니다.</p></div>
-      </div>
+      <article class="qa reveal open">
+        <button type="button"><span>개발을 잘해야 들어갈 수 있나요?</span></button>
+        <div><p>아니요. 처음부터 잘하는 사람보다 직접 해보려는 사람이 더 중요합니다. 다만 활동하면서 기초는 따라와야 합니다.</p></div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">어떤 분야를 하나요?</button>
-        <div><p>게임, 웹, 앱, 하드웨어를 중심으로 합니다. 한 분야만 고정하는 게 아니라 프로젝트에 맞게 섞어서 진행할 수 있습니다.</p></div>
-      </div>
+      <article class="qa reveal">
+        <button type="button"><span>코딩을 아예 몰라도 되나요?</span></button>
+        <div><p>가능은 합니다. 대신 기초 문법이나 도구 사용법은 활동하면서 배워야 합니다. 배우려는 의지가 없으면 힘들 수 있습니다.</p></div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">코딩을 아예 몰라도 되나요?</button>
-        <div><p>가능은 합니다. 대신 기초 문법이나 도구 사용법은 활동하면서 따라와야 합니다. 배우려는 의지가 없으면 힘들 수 있습니다.</p></div>
-      </div>
-
-      <div class="qa reveal">
-        <button type="button">디자인이나 기획만 해도 되나요?</button>
+      <article class="qa reveal">
+        <button type="button"><span>디자인이나 기획만 해도 되나요?</span></button>
         <div><p>가능합니다. 프로젝트에는 개발뿐 아니라 기획, UI, 자료 정리, 테스트, 발표도 필요합니다. 다만 결과물 제작에 직접 기여해야 합니다.</p></div>
-      </div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">활동은 대회 중심인가요?</button>
+      <article class="qa reveal">
+        <button type="button"><span>활동은 대회 중심인가요?</span></button>
         <div><p>대회도 나가지만 대회만 목표로 하지는 않습니다. 프로젝트 제작, 외부 활동 참여, 문서화까지 같이 봅니다.</p></div>
-      </div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">프로젝트는 혼자 하나요, 팀으로 하나요?</button>
-        <div><p>프로젝트에 따라 다릅니다. 작은 실험은 혼자 할 수 있고, 규모가 있는 작업은 팀으로 나눠서 진행합니다.</p></div>
-      </div>
+      <article class="qa reveal">
+        <button type="button"><span>프로젝트는 혼자 하나요, 팀으로 하나요?</span></button>
+        <div><p>작은 실험은 혼자 할 수 있고, 규모가 있는 작업은 팀으로 나눠서 진행합니다. 프로젝트 성격에 따라 달라집니다.</p></div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">결과물이 꼭 완성되어야 하나요?</button>
-        <div><p>완성이 목표입니다. 다만 처음부터 큰 걸 만들기보다는 작게 시작해서 실제로 작동하는 결과물을 남기는 방식을 선호합니다.</p></div>
-      </div>
+      <article class="qa reveal">
+        <button type="button"><span>어떤 분야를 다루나요?</span></button>
+        <div><p>게임, 웹, 앱, 하드웨어를 중심으로 합니다. 한 분야만 고정하지 않고 프로젝트에 맞게 섞어서 진행할 수 있습니다.</p></div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">활동 기록은 어디에 남기나요?</button>
-        <div><p>사이트의 문서, 갤러리, 활동 기록에 남깁니다. 보고서나 제출 캡처처럼 증명 가능한 자료를 같이 정리합니다.</p></div>
-      </div>
+      <article class="qa reveal">
+        <button type="button"><span>결과물이 꼭 완성되어야 하나요?</span></button>
+        <div><p>완성이 목표입니다. 처음부터 큰 걸 만들기보다는 작게 시작해서 실제로 작동하는 결과물을 남기는 방식을 선호합니다.</p></div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">면접이나 선발 기준이 있나요?</button>
+      <article class="qa reveal">
+        <button type="button"><span>활동 기록은 어디에 남기나요?</span></button>
+        <div><p>사이트의 문서, 갤러리, 활동 기록에 남깁니다. 보고서나 제출 캡처처럼 확인 가능한 자료를 같이 정리합니다.</p></div>
+      </article>
+
+      <article class="qa reveal">
+        <button type="button"><span>선발 기준이 있나요?</span></button>
         <div><p>기술 실력만 보지는 않습니다. 관심 분야, 해본 것, 앞으로 만들고 싶은 것, 같이 활동할 수 있는지를 봅니다.</p></div>
-      </div>
+      </article>
 
-      <div class="qa reveal">
-        <button type="button">2026년 0기는 무엇인가요?</button>
+      <article class="qa reveal">
+        <button type="button"><span>2026년 0기는 무엇인가요?</span></button>
         <div><p>정식 기수 전에 먼저 활동을 시작한 준비 기수입니다. 사이트, 문서, 프로젝트 방향을 잡고 이후 활동의 기반을 만드는 역할입니다.</p></div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
+
 
 <section class="join" id="join"><div class="wrap"><div class="join-grid"><div class="join-left"><h2>당신의<br><span class="point">첫 프로젝트</span></h2></div><div class="join-right"><p>BUILDS는 지금 첫 기수를 모집할 준비를 하고 있어요.<br>아래 버튼으로 지원서를 작성할 수 있습니다.</p><a class="btn" href="#" data-apply>지원하기 →</a><span class="join-sub">개발이 처음이어도, 만들고 싶은 마음만 있으면 충분해요.</span></div></div></div></div></section>
 <footer><div class="wrap foot"><div class="foot-brand"><a class="logo" href="#top"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#262626"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a><p class="foot-tag">만들면서 배우는 개발 동아리</p></div><div class="foot-right"><div class="links"><a href="#">instagram</a><a href="#">github</a><a href="#">blog</a></div><span class="foot-copy">© 2026 BUILDS</span></div></div></footer>
@@ -5611,11 +5838,15 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 
 
-<script id="faq-fix-script-v7">
+
+
+
+<script id="faq-final-script">
 document.querySelectorAll('.qa button').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.closest('.qa');
-    if(item) item.classList.toggle('open');
+    if(!item) return;
+    item.classList.toggle('open');
   });
 });
 </script>
