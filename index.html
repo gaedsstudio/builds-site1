@@ -5999,6 +5999,39 @@ body::after{
 }
 </style>
 
+
+<style id="general-club-records-faq-fix">
+.records-sec{padding:110px 0!important}
+.record-board{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;gap:16px!important;margin-bottom:20px!important}
+.record-main,.record-list article{border:1px solid #e8ded3!important;border-radius:22px!important;background:#fffdf9!important;box-shadow:0 1px 0 rgba(17,17,17,.03)!important}
+.record-main{padding:28px!important}
+.record-main time,.record-list time{display:block!important;color:#817a73!important;font-size:14px!important;font-weight:800!important;margin-bottom:12px!important}
+.record-main h3{font-size:30px!important;line-height:1.22!important;letter-spacing:-.055em!important;margin-bottom:12px!important}
+.record-main p,.record-list p{color:#5a554f!important;font-size:15.5px!important;line-height:1.75!important;word-break:keep-all!important}
+.record-meta{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:20px!important}
+.record-meta span{display:inline-flex!important;align-items:center!important;height:30px!important;padding:0 10px!important;border-radius:999px!important;border:1px solid #e8ded3!important;color:#5f5a54!important;font-size:13px!important;font-weight:800!important}
+.record-list{display:flex!important;flex-direction:column!important;gap:12px!important}
+.record-list article{flex:1!important;padding:22px!important}
+.record-list h3{font-size:20px!important;line-height:1.3!important;letter-spacing:-.045em!important;margin-bottom:8px!important}
+.quick-link-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;margin-top:18px!important}
+.quick-link-card{display:block!important;min-height:auto!important;border:1px solid #e8ded3!important;border-radius:20px!important;background:#fffdf9!important;padding:22px!important;color:#111!important;text-decoration:none!important;box-shadow:0 1px 0 rgba(17,17,17,.03)!important}
+.quick-link-card span{display:block!important;color:#817a73!important;font-size:13px!important;font-weight:800!important;margin-bottom:10px!important}
+.quick-link-card b{display:block!important;font-size:23px!important;line-height:1.25!important;letter-spacing:-.05em!important;margin-bottom:8px!important}
+.quick-link-card p{color:#5a554f!important;font-size:14.5px!important;line-height:1.6!important;margin:0!important;word-break:keep-all!important}
+.faq-wrap{display:grid!important;grid-template-columns:minmax(220px,320px) minmax(0,1fr)!important;gap:44px!important;align-items:start!important}
+.qa-list{display:flex!important;flex-direction:column!important;gap:10px!important}
+.qa{display:block!important;border:1px solid #e8ded3!important;border-radius:16px!important;background:#fffdf9!important;overflow:hidden!important;box-shadow:0 1px 0 rgba(17,17,17,.03)!important}
+.qa button{all:unset!important;box-sizing:border-box!important;width:100%!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;padding:18px 20px!important;cursor:pointer!important}
+.qa button span{display:block!important;color:#111!important;font-size:17px!important;line-height:1.45!important;font-weight:800!important;letter-spacing:-.035em!important;word-break:keep-all!important}
+.qa button::after{content:"+"!important;flex:0 0 auto!important;color:#8a827a!important;font-size:20px!important;transition:transform .22s ease!important}
+.qa.open button::after{transform:rotate(45deg)!important}
+.qa div{display:block!important;max-height:0!important;overflow:hidden!important;padding:0 20px!important;opacity:0!important;transition:max-height .35s ease,opacity .22s ease,padding .35s ease!important}
+.qa.open div{max-height:380px!important;padding:0 20px 18px!important;opacity:1!important}
+.qa p{color:#5a554f!important;font-size:15px!important;line-height:1.75!important;margin:0!important;word-break:keep-all!important}
+@media(max-width:900px){.record-board,.faq-wrap{grid-template-columns:1fr!important}.quick-link-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){.records-sec{padding:78px 0!important}.record-main,.record-list article,.quick-link-card{padding:20px!important}.record-main h3{font-size:24px!important}.qa button{padding:17px 18px!important}.qa.open div{padding:0 18px 17px!important}}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -6034,7 +6067,7 @@ body::after{
     <div class="section-title reveal journey-title">
       <div class="eyebrow">BUILDS의 여정</div>
       <h2>2026 여정</h2>
-      <p>0기가 실제로 남긴 기록입니다.</p>
+      <p>0기가 실제로 남긴 기록입니다. 일반 동아리 활동으로 차근차근 쌓아갑니다.</p>
     </div>
 
     <div class="journey-board reveal">
@@ -6056,11 +6089,6 @@ body::after{
           <h3>BUILDS 0기 시작</h3>
           <p>사이트와 활동 방향을 준비했습니다.</p>
         </article>
-        <article>
-          <time>2026.07</time>
-          <h3>AI 인사이트 포럼 신청</h3>
-          <p>첫 외부 활동 참가 신청 기록.</p>
-        </article>
         <article class="muted">
           <time>다음</time>
           <h3>추가 예정</h3>
@@ -6075,117 +6103,126 @@ body::after{
 
 
 
-<section id="awards" class="awards-sec">
+
+<section id="awards" class="records-sec">
   <div class="wrap">
     <div class="section-title reveal">
       <div class="eyebrow">기록</div>
-      <h2>2026 활동 기록</h2>
-      <p>BUILDS 0기의 활동을 월별로 정리합니다.</p>
+      <h2>BUILDS의 기록</h2>
+      <p>0기가 실제로 남긴 결과와 공지만 정리합니다.</p>
     </div>
 
-    <div class="acc-list record-accordion reveal">
-      <div class="acc-yr open">
-        <button class="acc-yr-head" type="button">
-          <span class="acc-yr-label">2026</span>
-          <span class="acc-yr-ic">⌄</span>
-        </button>
-        <div class="acc-yr-panel">
-          <ul class="acc-ul month-acc-list">
-            <li><span><b>06월</b> BUILDS 비공식 0기 준비 시작</span><em>시작</em></li>
-            <li><span><b>07월</b> 0기 멤버 합류 공지</span><em>공지</em></li>
-            <li><span><b>07월</b> Kaggle Titanic 생존자 예측 프로젝트 · 1476등</span><em>기록</em></li>
-            <li><span><b>07월</b> 2026 AI 인사이트 포럼 참가 신청</span><em>활동</em></li>
-          </ul>
+    <div class="record-board reveal">
+      <article class="record-main">
+        <time>2026.07.01</time>
+        <h3>Kaggle Titanic 생존자 예측 프로젝트 1476등</h3>
+        <p>ganbi가 Kaggle Titanic 문제를 제출해 점수 0.78947, 순위 1476등을 기록했습니다. 0기 첫 데이터 분석 기록으로 남깁니다.</p>
+        <div class="record-meta">
+          <span>점수 0.78947</span>
+          <span>1476등</span>
+          <span>작성자 ganbi</span>
         </div>
+      </article>
+
+      <div class="record-list">
+        <article>
+          <time>2026.06</time>
+          <h3>BUILDS 비공식 0기 시작</h3>
+          <p>정식 활동 전에 먼저 모여 방향과 사이트를 준비했습니다.</p>
+        </article>
+        <article>
+          <time>2026.07.01</time>
+          <h3>0기 멤버 합류 공지</h3>
+          <p>ganbi, 보네어, louisuu, 뒤틀린황천의진윤태, K.C가 0기로 합류했습니다.</p>
+        </article>
       </div>
     </div>
 
     <div class="quick-link-grid reveal">
       <a class="quick-link-card" href="gallery.html" target="_blank" rel="noopener">
-        <span>활동 사진</span>
-        <b>갤러리</b>
-        <p>활동 사진과 결과 캡처를 모아둡니다.</p>
+        <span>갤러리</span>
+        <b>활동 사진</b>
+        <p>사진과 캡처는 갤러리 페이지에 따로 모아둡니다.</p>
       </a>
 
       <a class="quick-link-card" href="docs.html" target="_blank" rel="noopener">
         <span>문서</span>
-        <b>문서</b>
-        <p>프로젝트 보고서와 기록을 정리합니다.</p>
+        <b>보고서</b>
+        <p>프로젝트 보고서와 정리 문서를 확인합니다.</p>
       </a>
 
       <a class="quick-link-card" href="notice.html" target="_blank" rel="noopener">
         <span>공지</span>
         <b>공지사항</b>
-        <p>0기 소식과 활동 기록을 정리합니다.</p>
+        <p>합류 공지와 활동 소식을 확인합니다.</p>
       </a>
     </div>
   </div>
 </section>
+
 
 <section id="faq" class="faq">
   <div class="wrap faq-wrap">
     <div class="faq-left reveal">
       <div class="eyebrow">Q&A</div>
       <h2>자주 묻는 질문</h2>
-      <p>지원 전에 자주 나올 만한 질문만 정리했습니다.</p>
+      <p>BUILDS는 선린인터넷고 일반 동아리입니다. 지원 전에 궁금할 만한 내용을 정리했습니다.</p>
     </div>
 
     <div class="qa-list">
       <article class="qa reveal open">
-        <button type="button"><span>개발을 잘해야 들어갈 수 있나요?</span></button>
-        <div><p>아니요. 처음부터 잘하는 사람보다 직접 해보려는 사람이 더 중요합니다. 다만 활동하면서 기초는 따라와야 합니다.</p></div>
+        <button type="button"><span>BUILDS는 어떤 동아리인가요?</span></button>
+        <div><p>BUILDS는 게임, 웹, 앱, 하드웨어처럼 직접 만들 수 있는 결과물을 중심으로 활동하는 선린인터넷고 일반 동아리입니다. 단순히 공부만 하는 곳이라기보다, 작게라도 만들어보고 기록으로 남기는 것을 목표로 합니다.</p></div>
+      </article>
+
+      <article class="qa reveal">
+        <button type="button"><span>전공 동아리인가요, 일반 동아리인가요?</span></button>
+        <div><p>일반 동아리입니다. 그래서 특정 전공 실력만으로 사람을 보지는 않습니다. 다만 일반 동아리라고 해서 가볍게만 운영하는 것은 아니고, 프로젝트와 활동 기록을 꾸준히 남기는 방향으로 운영합니다.</p></div>
+      </article>
+
+      <article class="qa reveal">
+        <button type="button"><span>코딩을 잘해야 들어갈 수 있나요?</span></button>
+        <div><p>처음부터 잘할 필요는 없습니다. 대신 활동하면서 기초 문법, 개발 도구, 협업 방식은 따라와야 합니다. 완성된 실력보다 중요한 것은 맡은 일을 끝까지 해보려는 태도입니다.</p></div>
       </article>
 
       <article class="qa reveal">
         <button type="button"><span>코딩을 아예 몰라도 되나요?</span></button>
-        <div><p>가능은 합니다. 대신 기초 문법이나 도구 사용법은 활동하면서 배워야 합니다. 배우려는 의지가 없으면 힘들 수 있습니다.</p></div>
+        <div><p>가능은 하지만 아무것도 배우지 않겠다는 뜻이면 어렵습니다. 기획, 디자인, 문서 정리로 시작할 수는 있어도 프로젝트를 이해하려면 기본적인 개발 흐름은 조금씩 익혀야 합니다.</p></div>
       </article>
 
       <article class="qa reveal">
         <button type="button"><span>디자인이나 기획만 해도 되나요?</span></button>
-        <div><p>가능합니다. 프로젝트에는 개발뿐 아니라 기획, UI, 자료 정리, 테스트, 발표도 필요합니다. 다만 결과물 제작에 직접 기여해야 합니다.</p></div>
+        <div><p>가능합니다. 프로젝트에는 기획, UI, 발표, 테스트, 자료 정리도 필요합니다. 다만 이름만 올리는 방식은 지양하고, 결과물 제작에 실제로 기여한 기록이 남아야 합니다.</p></div>
       </article>
 
       <article class="qa reveal">
         <button type="button"><span>활동은 대회 중심인가요?</span></button>
-        <div><p>대회도 나가지만 대회만 목표로 하지는 않습니다. 프로젝트 제작, 외부 활동 참여, 문서화까지 같이 봅니다.</p></div>
+        <div><p>대회도 나가지만 대회만 목표로 하지는 않습니다. 외부 활동, 프로젝트 제작, 보고서 작성, 사이트 기록까지 모두 활동으로 봅니다. AI 인사이트 포럼 같은 참가 신청 기록은 갤러리에는 남길 수 있지만, 수상이나 핵심 활동 기록으로 과장해서 넣지는 않습니다.</p></div>
       </article>
 
       <article class="qa reveal">
-        <button type="button"><span>프로젝트는 혼자 하나요, 팀으로 하나요?</span></button>
-        <div><p>작은 실험은 혼자 할 수 있고, 규모가 있는 작업은 팀으로 나눠서 진행합니다. 프로젝트 성격에 따라 달라집니다.</p></div>
+        <button type="button"><span>프로젝트는 어떤 식으로 진행하나요?</span></button>
+        <div><p>처음에는 작게 시작합니다. 만들고 싶은 것을 정하고, 역할을 나눈 뒤, 실제로 작동하는 결과물을 먼저 만듭니다. 이후 문서, 갤러리, 공지에 과정과 결과를 정리합니다.</p></div>
       </article>
 
       <article class="qa reveal">
-        <button type="button"><span>어떤 분야를 다루나요?</span></button>
-        <div><p>게임, 웹, 앱, 하드웨어를 중심으로 합니다. 한 분야만 고정하지 않고 프로젝트에 맞게 섞어서 진행할 수 있습니다.</p></div>
+        <button type="button"><span>개인 활동도 기록에 올릴 수 있나요?</span></button>
+        <div><p>동아리 활동과 연결될 수 있고 확인 가능한 결과라면 올릴 수 있습니다. 예를 들어 Kaggle 제출 기록처럼 점수와 순위가 남는 활동은 문서와 공지에 정리할 수 있습니다.</p></div>
       </article>
 
       <article class="qa reveal">
         <button type="button"><span>결과물이 꼭 완성되어야 하나요?</span></button>
-        <div><p>완성이 목표입니다. 처음부터 큰 걸 만들기보다는 작게 시작해서 실제로 작동하는 결과물을 남기는 방식을 선호합니다.</p></div>
-      </article>
-
-      <article class="qa reveal">
-        <button type="button"><span>활동 기록은 어디에 남기나요?</span></button>
-        <div><p>사이트의 문서, 갤러리, 활동 기록에 남깁니다. 보고서나 제출 캡처처럼 확인 가능한 자료를 같이 정리합니다.</p></div>
-      </article>
-
-      <article class="qa reveal">
-        <button type="button"><span>선발 기준이 있나요?</span></button>
-        <div><p>기술 실력만 보지는 않습니다. 관심 분야, 해본 것, 앞으로 만들고 싶은 것, 같이 활동할 수 있는지를 봅니다.</p></div>
+        <div><p>가능하면 완성을 목표로 합니다. 다만 처음부터 큰 결과물을 요구하지는 않습니다. 작은 기능이라도 실제로 작동하게 만들고, 그 과정을 기록으로 남기는 것을 더 중요하게 봅니다.</p></div>
       </article>
 
       <article class="qa reveal">
         <button type="button"><span>2026년 0기는 무엇인가요?</span></button>
-        <div><p>정식 기수 전에 먼저 활동을 시작한 준비 기수입니다. 사이트, 문서, 프로젝트 방향을 잡고 이후 활동의 기반을 만드는 역할입니다.</p></div>
+        <div><p>정식 기수 전에 먼저 활동 방향을 잡는 준비 기수입니다. 사이트, 문서, 갤러리, 공지 체계를 만들고 이후 기수들이 활동을 이어갈 수 있는 기반을 만드는 역할을 합니다.</p></div>
       </article>
     </div>
   </div>
 </section>
 
-
-<section class="join" id="join"><div class="wrap"><div class="join-grid"><div class="join-left"><h2>당신의<br><span class="point">첫 프로젝트</span></h2></div><div class="join-right"><p>BUILDS는 지금 첫 기수를 모집할 준비를 하고 있어요.<br>아래 버튼으로 지원서를 작성할 수 있습니다.</p><a class="btn" href="#" data-apply>지원하기 →</a><span class="join-sub">개발이 처음이어도, 만들고 싶은 마음만 있으면 충분해요.</span></div></div></div></div></section>
 <footer><div class="wrap foot"><div class="foot-brand"><a class="logo" href="#top"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#262626"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a><p class="foot-tag">만들면서 배우는 개발 동아리</p></div><div class="foot-right"><div class="links"><a href="#">instagram</a><a href="#">github</a><a href="#">blog</a></div><span class="foot-copy">© 2026 BUILDS</span></div></div></footer>
 
 <script>
@@ -6519,7 +6556,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 
-<script id="faq-animated-script-v8">
+
+
+
+<script id="faq-general-club-script">
 document.querySelectorAll('.qa button').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.closest('.qa');
