@@ -2113,6 +2113,459 @@ body{
   line-height:1.5;
 }
 
+
+/* ===== 멤버 소개 MODAL ===== */
+.mem-card{
+  cursor:pointer;
+}
+.mem-card:focus-visible{
+  outline:2px solid var(--point);
+  outline-offset:4px;
+}
+.mem-card::after{
+  pointer-events:none;
+}
+.mem-card .mem-body::after,
+.mem-card:not(.has-photo)::after{
+  content:"프로필 보기";
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  color:#aaa;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity .25s ease,transform .25s ease,color .25s ease;
+}
+.mem-card.has-photo .mem-body::after{
+  right:0;
+  bottom:0;
+}
+.mem-card:not(.has-photo)::after{
+  right:22px;
+  bottom:20px;
+}
+.mem-card:hover .mem-body::after,
+.mem-card:not(.has-photo):hover::after{
+  opacity:1;
+  transform:translateY(0);
+  color:var(--point);
+}
+
+.profile-overlay{
+  position:fixed;
+  inset:0;
+  z-index:240;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:28px 16px;
+  background:rgba(17,17,17,.52);
+  backdrop-filter:blur(8px);
+  overflow-y:auto;
+}
+.profile-overlay.show{
+  display:flex;
+}
+.profile-modal{
+  position:relative;
+  width:min(100%,760px);
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 32px 90px rgba(0,0,0,.28);
+  animation:profileUp .28s cubic-bezier(.16,.84,.3,1);
+}
+@keyframes profileUp{
+  from{opacity:0;transform:translateY(18px) scale(.98)}
+  to{opacity:1;transform:none}
+}
+.profile-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:3;
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#444;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.profile-close:hover{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.profile-head{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:28px;
+  padding:34px;
+  background:linear-gradient(135deg,#fff 0%,#fff8f4 100%);
+  border-bottom:1px solid var(--line);
+}
+.profile-avatar{
+  width:180px;
+  height:180px;
+  border-radius:24px;
+  background:#f4f4f1;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.profile-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.profile-avatar.empty{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#111;
+  color:#fff;
+  font-size:52px;
+  font-weight:900;
+}
+.profile-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--point);
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+.profile-kicker::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--point);
+}
+.profile-name{
+  font-size:38px;
+  line-height:1.1;
+  letter-spacing:-1.5px;
+  margin-bottom:10px;
+}
+.profile-role{
+  color:#555;
+  font-weight:750;
+  margin-bottom:14px;
+}
+.profile-intro{
+  color:#4d4d4d;
+  font-size:15.5px;
+  line-height:1.7;
+}
+.profile-body{
+  padding:30px 34px 34px;
+}
+.profile-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.profile-block{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  background:#fff;
+}
+.profile-block.full{
+  grid-column:1 / -1;
+}
+.profile-block h4{
+  font-size:14px;
+  color:#999;
+  font-weight:900;
+  letter-spacing:.04em;
+  margin-bottom:12px;
+}
+.profile-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.profile-list li{
+  position:relative;
+  padding-left:14px;
+  color:#333;
+  font-size:15px;
+  line-height:1.55;
+}
+.profile-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--point);
+}
+.profile-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.profile-tags span{
+  display:inline-flex;
+  align-items:center;
+  border:1px solid #eee1d9;
+  background:#fff9f5;
+  color:#333;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:13px;
+  font-weight:800;
+}
+.profile-note{
+  color:#666;
+  font-size:15px;
+  line-height:1.7;
+}
+body.profile-open{
+  overflow:hidden;
+}
+@media(max-width:680px){
+  .profile-head{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:28px 22px;
+  }
+  .profile-avatar{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/10;
+  }
+  .profile-name{
+    font-size:30px;
+  }
+  .profile-body{
+    padding:22px;
+  }
+  .profile-grid{
+    grid-template-columns:1fr;
+  }
+  .profile-block.full{
+    grid-column:auto;
+  }
+}
+
+
+/* ===== LESS-AI CLEANUP: labels / member modal ===== */
+
+/* 작품 카드 위 검은 GAME/WEB/HARDWARE 배지 제거 */
+.work-cat{
+  display:none!important;
+}
+
+/* 멤버 카드 하단의 '프로필 보기' 문구 제거 */
+.mem-card .mem-body::after,
+.mem-card:not(.has-photo)::after{
+  display:none!important;
+  content:none!important;
+}
+
+/* 카드 클릭 가능함은 커서와 아주 약한 hover만으로 표현 */
+.mem-card{
+  cursor:pointer;
+}
+.mem-card:hover{
+  transform:translateY(-2px)!important;
+}
+
+/* 포트폴리오 모달을 과한 카드형 UI에서 간단한 프로필 시트로 정리 */
+.profile-overlay{
+  background:rgba(15,15,15,.42)!important;
+  backdrop-filter:blur(5px)!important;
+}
+
+.profile-modal{
+  width:min(100%,720px)!important;
+  border-radius:18px!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.22)!important;
+  border:1px solid #e8e2dc!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+
+.profile-close{
+  top:14px!important;
+  right:14px!important;
+  width:34px!important;
+  height:34px!important;
+  border-radius:10px!important;
+  font-size:22px!important;
+  border:1px solid #e8e2dc!important;
+  background:#fff!important;
+  color:#555!important;
+}
+.profile-close:hover{
+  background:#111!important;
+  color:#fff!important;
+}
+
+.profile-head{
+  display:grid!important;
+  grid-template-columns:132px 1fr!important;
+  gap:24px!important;
+  padding:30px 30px 26px!important;
+  background:#fff!important;
+  border-bottom:1px solid #eee8e3!important;
+}
+
+.profile-avatar{
+  width:132px!important;
+  height:132px!important;
+  border-radius:16px!important;
+  border:1px solid #eee8e3!important;
+  background:#f7f7f5!important;
+}
+
+.profile-avatar.empty{
+  font-size:38px!important;
+  border-radius:16px!important;
+}
+
+.profile-kicker{
+  color:#888!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+  margin-bottom:8px!important;
+}
+
+.profile-kicker::before{
+  width:6px!important;
+  height:6px!important;
+  background:#bbb!important;
+}
+
+.profile-name{
+  font-family:"Pretendard","Noto Sans KR",sans-serif!important;
+  font-size:34px!important;
+  font-weight:850!important;
+  letter-spacing:-1.3px!important;
+  margin-bottom:8px!important;
+  line-height:1.12!important;
+}
+
+.profile-role{
+  color:#333!important;
+  font-size:16px!important;
+  font-weight:750!important;
+  margin-bottom:12px!important;
+}
+
+.profile-intro{
+  color:#555!important;
+  font-size:15.5px!important;
+  line-height:1.65!important;
+}
+
+/* 여러 박스가 많은 AI식 포트폴리오 느낌 제거 */
+.profile-body{
+  padding:0 30px 30px!important;
+}
+
+.profile-grid{
+  display:block!important;
+}
+
+.profile-block{
+  border:0!important;
+  border-radius:0!important;
+  padding:20px 0!important;
+  background:transparent!important;
+  border-bottom:1px solid #eee8e3!important;
+}
+
+.profile-block:last-child{
+  border-bottom:0!important;
+  padding-bottom:0!important;
+}
+
+.profile-block h4{
+  color:#999!important;
+  font-size:13px!important;
+  font-weight:850!important;
+  letter-spacing:-.01em!important;
+  margin-bottom:10px!important;
+}
+
+.profile-tags{
+  gap:7px!important;
+}
+
+.profile-tags span{
+  border:1px solid #e7ded6!important;
+  background:#fff!important;
+  color:#333!important;
+  border-radius:999px!important;
+  padding:5px 10px!important;
+  font-size:13px!important;
+  font-weight:750!important;
+}
+
+.profile-list{
+  gap:7px!important;
+}
+
+.profile-list li{
+  color:#333!important;
+  font-size:15px!important;
+  line-height:1.6!important;
+  padding-left:13px!important;
+}
+
+.profile-list li::before{
+  width:4px!important;
+  height:4px!important;
+  background:#999!important;
+}
+
+.profile-note{
+  color:#444!important;
+  font-size:15px!important;
+  line-height:1.65!important;
+}
+
+/* 모바일에서 사진 너무 크게 안 깨지게 */
+@media(max-width:680px){
+  .profile-modal{
+    border-radius:16px!important;
+  }
+  .profile-head{
+    grid-template-columns:92px 1fr!important;
+    gap:16px!important;
+    padding:24px 20px 20px!important;
+  }
+  .profile-avatar{
+    width:92px!important;
+    height:92px!important;
+    border-radius:14px!important;
+    aspect-ratio:auto!important;
+  }
+  .profile-name{
+    font-size:26px!important;
+    letter-spacing:-1px!important;
+  }
+  .profile-body{
+    padding:0 20px 24px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2363,5 +2816,166 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 <div class="apply-overlay" id="applyOverlay" aria-hidden="true"><div class="apply-modal"><button class="apply-close" id="applyClose" aria-label="닫기">×</button><div class="apply-inner" id="applyInner"><div class="apply-head" id="applyHead"><div class="eyebrow">BUILDS 1기 모집</div><h2>같이 만들 사람,<br>찾고 있어요</h2><p>잘하는 사람보다 끝까지 만들어 내는 사람을 찾아요. 개발이 처음이어도, 만들고 싶은 마음만 있으면 충분합니다.</p></div><form id="applyForm"><div class="ffield"><label class="q">이름<span class="req">*</span></label><input type="text" name="이름" required /></div><div class="ffield"><label class="q">학년 / 반<span class="req">*</span></label><div class="hint">예) 1학년 3반</div><input type="text" name="학년반" required /></div><div class="ffield"><label class="q">연락처<span class="req">*</span></label><div class="hint">전화번호 또는 인스타그램 ID — 합격 안내에 사용돼요.</div><input type="text" name="연락처" required /></div><div class="ffield"><label class="q">관심 분야 (여러 개 선택 가능)<span class="req">*</span></label><div class="fopts"><label class="fopt"><input type="checkbox" name="관심분야" value="게임" /><span>게임</span></label><label class="fopt"><input type="checkbox" name="관심분야" value="앱" /><span>앱 (모바일/데스크톱)</span></label><label class="fopt"><input type="checkbox" name="관심분야" value="웹" /><span>웹 (프론트엔드/백엔드)</span></label><label class="fopt"><input type="checkbox" name="관심분야" value="하드웨어" /><span>하드웨어</span></label><label class="fopt"><input type="checkbox" name="관심분야" value="다해보고싶음" /><span>아직 모르겠어요 / 다 해보고 싶어요</span></label></div></div><div class="ffield"><label class="q">개발 경험이 있다면 자유롭게 적어주세요</label><div class="hint">사용해 본 언어·도구, 만들어 본 것 등 무엇이든 좋아요. 없어도 괜찮습니다.</div><textarea name="개발경험"></textarea></div><div class="ffield"><label class="q">BUILDS에서 만들어보고 싶은 게 있나요?<span class="req">*</span></label><div class="hint">거창하지 않아도 돼요. "이런 게임/앱/사이트를 만들어 보고 싶다" 정도면 충분합니다.</div><textarea name="만들고싶은것" required></textarea></div><div class="ffield"><label class="q">지원 동기 / 각오 한마디<span class="req">*</span></label><div class="hint">왜 BUILDS에 들어오고 싶은지, 어떻게 활동하고 싶은지 편하게 적어주세요.</div><textarea name="지원동기" required></textarea></div><div class="ffield"><label class="q">일주일에 동아리에 쓸 수 있는 시간<span class="req">*</span></label><div class="fopts"><label class="fopt"><input type="radio" name="활동시간" value="1~2시간" /><span>1~2시간</span></label><label class="fopt"><input type="radio" name="활동시간" value="3~4시간" /><span>3~4시간</span></label><label class="fopt"><input type="radio" name="활동시간" value="5시간 이상" /><span>5시간 이상</span></label><label class="fopt"><input type="radio" name="활동시간" value="유동적" /><span>유동적</span></label></div></div><div class="ffield"><label class="q">마지막으로 하고 싶은 말</label><textarea name="기타"></textarea></div><button type="submit" class="apply-submit" id="applySubmit">지원서 작성하고 보내기</button><p class="apply-note">버튼을 누르면 메일 앱이 열리고, 작성한 내용이 자동으로 채워져요. 보내기만 누르면 지원 완료!</p></form><div class="apply-done" id="applyDone"><div class="apply-check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2>메일 앱이 열렸나요?</h2><p>열린 메일에서 <b>보내기</b>를 누르면 지원이 완료돼요. 혹시 메일 앱이 안 열렸다면 seowon585@gmail.com 으로 직접 보내주셔도 됩니다.</p><button class="apply-home" id="applyHome">닫기</button></div></div></div></div>
+<div class="profile-overlay" id="profileOverlay" aria-hidden="true">
+  <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileName">
+    <button class="profile-close" id="profileClose" aria-label="닫기">×</button>
+    <div class="profile-head">
+      <div class="profile-avatar" id="profileAvatar"></div>
+      <div>
+        <div class="profile-kicker" id="profileKicker">멤버 소개</div>
+        <h2 class="profile-name" id="profileName">멤버 이름</h2>
+        <div class="profile-role" id="profileRole">역할</div>
+        <p class="profile-intro" id="profileIntro">소개</p>
+      </div>
+    </div>
+    <div class="profile-body">
+      <div class="profile-grid">
+        <section class="profile-block">
+          <h4>분야</h4>
+          <div class="profile-tags" id="profileTags"></div>
+        </section>
+        <section class="profile-block">
+          <h4>역할</h4>
+          <ul class="profile-list" id="profileTasks"></ul>
+        </section>
+        <section class="profile-block full">
+          <h4>활동</h4>
+          <ul class="profile-list" id="profileWorks"></ul>
+        </section>
+        <section class="profile-block full">
+          <h4>소개</h4>
+          <p class="profile-note" id="profileNote"></p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  const overlay=document.getElementById('profileOverlay');
+  const closeBtn=document.getElementById('profileClose');
+  const avatar=document.getElementById('profileAvatar');
+  const nameEl=document.getElementById('profileName');
+  const roleEl=document.getElementById('profileRole');
+  const introEl=document.getElementById('profileIntro');
+  const tagsEl=document.getElementById('profileTags');
+  const tasksEl=document.getElementById('profileTasks');
+  const worksEl=document.getElementById('profileWorks');
+  const noteEl=document.getElementById('profileNote');
+  if(!overlay)return;
+
+  const portfolio={
+    "ganbi":{
+      role:"0기 부장 · 백엔드 개발 · 기획",
+      intro:"0기 부장입니다. 감사합니다.",
+      tags:["백엔드","기획","운영"],
+      tasks:["동아리 방향 정리","프로젝트 기획","백엔드 개발"],
+      works:["BUILDS 0기 운영 준비","1기 모집 페이지 제작"],
+      note:"0기 활동의 기본 틀을 잡고, 프로젝트가 실제로 진행될 수 있도록 준비합니다."
+    },
+    "보네어":{
+      role:"기획 · 검수",
+      intro:"기획과 검수를 맡고 있습니다.",
+      tags:["기획","검수"],
+      tasks:["아이디어 정리","기획 검수","프로젝트 피드백"],
+      works:["BUILDS 0기 기획 참여"],
+      note:"프로젝트 방향을 함께 확인하고, 완성도를 점검합니다."
+    },
+    "louisuu":{
+      role:"부부장 · 프론트엔드 개발 · 운영 보조",
+      intro:"프론트엔드와 운영 보조를 맡고 있습니다.",
+      tags:["프론트엔드","UI","운영"],
+      tasks:["웹 화면 구현","UI 구성","운영 보조"],
+      works:["BUILDS 웹 페이지 제작 참여"],
+      note:"사이트 화면과 동아리 운영을 함께 보조합니다."
+    },
+    "뒤틀린황천의진윤태":{
+      role:"기획",
+      intro:"광대",
+      tags:["기획","아이디어"],
+      tasks:["아이디어 제안","컨셉 정리","기획 참여"],
+      works:["BUILDS 0기 기획 참여"],
+      note:"기획 파트에서 아이디어와 컨셉 정리를 맡고 있습니다."
+    },
+    "K.C":{
+      role:"기획",
+      intro:"기획 파트로 참여하고 있습니다.",
+      tags:["기획","아이디어"],
+      tasks:["프로젝트 아이디어 정리","기획 참여","팀 회의 참여"],
+      works:["BUILDS 0기 기획 참여"],
+      note:"프로젝트 방향을 함께 정리합니다."
+    }
+  };
+
+  function getPhotoFromCard(card){
+    const img=card.querySelector('.mem-photo');
+    return img ? img.getAttribute('src') : '';
+  }
+
+  function fillList(target, items){
+    target.innerHTML=items.map(item=>`<li>${item}</li>`).join('');
+  }
+
+  function openProfile(card){
+    const name=card.querySelector('.mem-nick')?.textContent.trim();
+    if(!name)return;
+    const data=portfolio[name] || {
+      role:card.querySelector('.mem-role')?.textContent.trim() || "0기 멤버",
+      intro:"포트폴리오 내용은 준비 중입니다.",
+      tags:["BUILDS"],
+      tasks:["0기 활동 참여"],
+      works:["포트폴리오 준비 중"],
+      note:"추가 내용은 추후 업데이트 예정입니다."
+    };
+
+    const photo=getPhotoFromCard(card);
+    avatar.className='profile-avatar';
+    if(photo){
+      avatar.innerHTML=`<img src="${photo}" alt="${name} 프로필 사진">`;
+    }else{
+      avatar.classList.add('empty');
+      avatar.textContent=name.slice(0,1);
+    }
+
+    nameEl.textContent=name;
+    roleEl.textContent=data.role;
+    introEl.textContent=data.intro;
+    tagsEl.innerHTML=data.tags.map(tag=>`<span>${tag}</span>`).join('');
+    fillList(tasksEl,data.tasks);
+    fillList(worksEl,data.works);
+    noteEl.textContent=data.note;
+
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('profile-open');
+  }
+
+  function closeProfile(){
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.classList.remove('profile-open');
+  }
+
+  document.querySelectorAll('#members .mem-card').forEach(card=>{
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label',(card.querySelector('.mem-nick')?.textContent.trim()||'멤버')+' 포트폴리오 보기');
+    card.addEventListener('click',()=>openProfile(card));
+    card.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        openProfile(card);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click',closeProfile);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeProfile();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('show'))closeProfile();});
+})();
+</script>
+
 </body>
 </html>
