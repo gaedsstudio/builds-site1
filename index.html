@@ -5759,6 +5759,74 @@ body::after{
 }
 </style>
 
+
+<style id="quick-link-grid-fix">
+.quick-link-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:22px;
+}
+
+.quick-link-card{
+  display:block;
+  min-height:150px;
+  border:1px solid #e8ded3;
+  border-radius:20px;
+  background:#fffdf9;
+  padding:22px;
+  text-decoration:none;
+  color:#111;
+  box-shadow:0 1px 0 rgba(17,17,17,.03);
+  transition:transform .22s ease, border-color .22s ease;
+}
+
+.quick-link-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,75,36,.26);
+}
+
+.quick-link-card span{
+  display:block;
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.quick-link-card b{
+  display:block;
+  font-size:24px;
+  line-height:1.25;
+  letter-spacing:-.05em;
+  margin-bottom:8px;
+}
+
+.quick-link-card p{
+  color:#5a554f;
+  font-size:14.5px;
+  line-height:1.6;
+  word-break:keep-all;
+}
+
+/* 기존 카드 스타일이 남아 있어도 숨김 */
+.section-link-card,
+.notice-link-card,
+.docs-link-card,
+.member-link-card{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  .quick-link-grid{
+    grid-template-columns:1fr;
+  }
+  .quick-link-card{
+    min-height:auto;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5791,14 +5859,7 @@ body::after{
       <h2>0기 멤버</h2>
     </div>
     <p class="mem-intro">BUILDS 0기 멤버 소개입니다. 자세한 내용은 멤버 페이지에 따로 정리했습니다.</p>
-
-    <div class="section-link-card member-link-card reveal">
-      <div>
-        <span>0기 멤버</span>
-        <h3>멤버 소개</h3>
-        <p>0기 멤버들의 역할과 소개를 따로 정리했습니다.</p>
-      </div>
-      <a href="members.html" target="_blank" rel="noopener">멤버 보기</a>
+<a href="members.html" target="_blank" rel="noopener">멤버 보기</a>
     </div>
   </div>
 </section>
@@ -5890,30 +5951,10 @@ body::after{
         <a href="docs.html" target="_blank" rel="noopener">보고서 보기</a>
       </div>
     </div>
-
-
-    <div class="section-link-card reveal">
-      <div>
-        <span>활동 사진</span>
-        <h3>활동 사진은 갤러리 페이지에 모아두었습니다.</h3>
-        <p>활동 사진과 결과 캡처를 한곳에 모았습니다.</p>
-      </div>
-      <a href="gallery.html" target="_blank" rel="noopener">보기</a>
+<a href="gallery.html" target="_blank" rel="noopener">보기</a>
     </div>
-    <div class="section-link-card docs-link-card reveal">
-      <div>
-        <span>문서</span>
-        <h3>문서</h3>
-        <p>프로젝트 보고서와 기록을 정리해 둔 페이지입니다.</p>
-      </div>
 
-    <div class="section-link-card notice-link-card reveal">
-      <div>
-        <span>공지</span>
-        <h3>공지사항</h3>
-        <p>0기 소식과 활동 기록을 정리합니다.</p>
-      </div>
-      <a href="notice.html" target="_blank" rel="noopener">보기</a>
+<a href="notice.html" target="_blank" rel="noopener">보기</a>
     </div>
 
       <a href="docs.html" target="_blank" rel="noopener">문서 보기</a>
@@ -5921,6 +5962,27 @@ body::after{
 
   </div>
 <a href="notice.html" target="_blank" rel="noopener">보기</a>
+    </div>
+
+
+    <div class="quick-link-grid reveal">
+      <a class="quick-link-card" href="gallery.html" target="_blank" rel="noopener">
+        <span>활동 사진</span>
+        <b>갤러리</b>
+        <p>활동 사진과 결과 캡처를 모아둡니다.</p>
+      </a>
+
+      <a class="quick-link-card" href="docs.html" target="_blank" rel="noopener">
+        <span>문서</span>
+        <b>문서</b>
+        <p>프로젝트 보고서와 기록을 정리합니다.</p>
+      </a>
+
+      <a class="quick-link-card" href="notice.html" target="_blank" rel="noopener">
+        <span>공지</span>
+        <b>공지사항</b>
+        <p>0기 소식과 활동 기록을 정리합니다.</p>
+      </a>
     </div>
 
 </section>
