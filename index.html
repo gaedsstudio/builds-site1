@@ -5698,6 +5698,67 @@ body::after{
 }
 </style>
 
+
+<style id="notice-card-real-compact-fix">
+.notice-link-card{
+  max-width:1180px!important;
+  width:100%!important;
+  margin:16px auto 0!important;
+  padding:16px 20px!important;
+  min-height:0!important;
+  height:auto!important;
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  align-items:center!important;
+  gap:18px!important;
+  border-radius:18px!important;
+}
+
+.notice-link-card *{
+  min-height:0!important;
+}
+
+.notice-link-card span{
+  display:block!important;
+  margin:0 0 5px!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+}
+
+.notice-link-card h3{
+  margin:0 0 4px!important;
+  font-size:20px!important;
+  line-height:1.3!important;
+  letter-spacing:-.04em!important;
+}
+
+.notice-link-card p{
+  margin:0!important;
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+
+.notice-link-card a{
+  width:auto!important;
+  min-width:70px!important;
+  height:38px!important;
+  padding:0 14px!important;
+  border-radius:11px!important;
+  font-size:14px!important;
+}
+
+@media(max-width:760px){
+  .notice-link-card{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    padding:16px 18px!important;
+  }
+  .notice-link-card a{
+    width:100%!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -5845,18 +5906,21 @@ body::after{
         <h3>문서</h3>
         <p>프로젝트 보고서와 기록을 정리해 둔 페이지입니다.</p>
       </div>
-      <a href="docs.html" target="_blank" rel="noopener">문서 보기</a>
-    </div>
-
-  </div>
 
     <div class="section-link-card notice-link-card reveal">
       <div>
         <span>공지</span>
         <h3>공지사항</h3>
-        <p>합격자 발표와 활동 소식을 이곳에 정리합니다.</p>
+        <p>0기 소식과 활동 기록을 정리합니다.</p>
       </div>
       <a href="notice.html" target="_blank" rel="noopener">보기</a>
+    </div>
+
+      <a href="docs.html" target="_blank" rel="noopener">문서 보기</a>
+    </div>
+
+  </div>
+<a href="notice.html" target="_blank" rel="noopener">보기</a>
     </div>
 
 </section>

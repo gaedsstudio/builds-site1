@@ -4891,6 +4891,185 @@ body::after{
 }
 </style>
 
+
+<style id="member-awards-added-style">
+.member-mini-award{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid #eee6df;
+}
+.member-mini-award b{
+  display:block;
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+.member-mini-award span{
+  color:#111;
+  font-size:14.5px;
+  font-weight:800;
+  line-height:1.45;
+}
+.member-mini-award.muted span{
+  color:#9a938b;
+  font-weight:700;
+}
+
+.member-awards-page{
+  padding:120px 0;
+  background:#fffaf5;
+  border-top:1px solid #eee6df;
+}
+
+.club-award-card{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:24px;
+  border:1px solid #e8ded3;
+  border-radius:24px;
+  background:#fffdf9;
+  padding:26px;
+  margin-bottom:18px;
+  box-shadow:0 1px 0 rgba(17,17,17,.03);
+}
+.club-award-card > div > span{
+  display:block;
+  color:#817a73;
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.club-award-card h3{
+  font-size:28px;
+  line-height:1.2;
+  letter-spacing:-.055em;
+  margin-bottom:10px;
+}
+.club-award-card p{
+  color:#5a554f;
+  font-size:15px;
+  line-height:1.7;
+  word-break:keep-all;
+}
+.club-award-card ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-top:1px solid #eee6df;
+}
+.club-award-card li{
+  display:grid;
+  grid-template-columns:110px 1fr auto;
+  gap:14px;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px solid #eee6df;
+}
+.club-award-card li b{
+  color:#817a73;
+  font-size:14px;
+}
+.club-award-card li span{
+  color:#111;
+  font-size:15px;
+  font-weight:800;
+}
+.club-award-card li em{
+  color:#ff4b24;
+  font-style:normal;
+  font-size:14px;
+  font-weight:900;
+}
+
+.member-award-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.member-award-card{
+  border:1px solid #e8ded3;
+  border-radius:20px;
+  background:#fffdf9;
+  padding:22px;
+  min-height:170px;
+  box-shadow:0 1px 0 rgba(17,17,17,.03);
+}
+.member-award-card.active{
+  border-color:rgba(255,75,36,.28);
+}
+.member-award-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:16px;
+}
+.member-award-head h3{
+  font-size:23px;
+  line-height:1.2;
+  letter-spacing:-.05em;
+}
+.member-award-head span{
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+}
+.member-award-card ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.member-award-card li time{
+  display:block;
+  color:#817a73;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+.member-award-card li b{
+  display:block;
+  font-size:17px;
+  line-height:1.35;
+  letter-spacing:-.035em;
+  margin-bottom:7px;
+}
+.member-award-card li p,
+.empty-award{
+  color:#5a554f;
+  font-size:14.5px;
+  line-height:1.65;
+  word-break:keep-all;
+}
+.empty-award{
+  color:#9a938b;
+}
+@media(max-width:900px){
+  .club-award-card{
+    grid-template-columns:1fr;
+  }
+  .member-award-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .club-award-card li{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+}
+@media(max-width:640px){
+  .member-awards-page{
+    padding:82px 0;
+  }
+  .member-award-grid{
+    grid-template-columns:1fr;
+  }
+  .club-award-card,
+  .member-award-card{
+    padding:20px;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
@@ -4928,7 +5107,7 @@ body::after{
         <div class="para-member-info">
           <div class="para-member-top"><h3>ganbi</h3><span>부장</span></div>
           <p class="para-member-role">백엔드 개발 · 기획</p>
-          <p class="para-member-bio">0기 부장입니다. 감사합니다.</p>
+          <p class="para-member-bio">0기 부장입니다. 감사합니다.</p><div class="member-mini-award"><b>수상/기록</b><span>Kaggle Titanic 1476등</span></div>
         </div>
       </article>
 
@@ -4937,7 +5116,7 @@ body::after{
         <div class="para-member-info">
           <div class="para-member-top"><h3>보네어</h3></div>
           <p class="para-member-role">기획 · 검수</p>
-          <p class="para-member-bio">기획과 검수를 맡고 있습니다.</p>
+          <p class="para-member-bio">기획과 검수를 맡고 있습니다.</p><div class="member-mini-award muted"><b>수상/기록</b><span>아직 등록된 기록 없음</span></div>
         </div>
       </article>
 
@@ -4946,7 +5125,7 @@ body::after{
         <div class="para-member-info">
           <div class="para-member-top"><h3>louisuu</h3><span>부부장</span></div>
           <p class="para-member-role">프론트엔드 개발 · 운영 보조</p>
-          <p class="para-member-bio">프론트엔드와 운영 보조를 맡고 있습니다.</p>
+          <p class="para-member-bio">프론트엔드와 운영 보조를 맡고 있습니다.</p><div class="member-mini-award muted"><b>수상/기록</b><span>아직 등록된 기록 없음</span></div>
         </div>
       </article>
 
@@ -4955,7 +5134,7 @@ body::after{
         <div class="para-member-info">
           <div class="para-member-top"><h3>뒤틀린황천의진윤태</h3></div>
           <p class="para-member-role">기획</p>
-          <p class="para-member-bio">광대</p>
+          <p class="para-member-bio">광대</p><div class="member-mini-award muted"><b>수상/기록</b><span>아직 등록된 기록 없음</span></div>
         </div>
       </article>
 
@@ -4964,12 +5143,82 @@ body::after{
         <div class="para-member-info">
           <div class="para-member-top"><h3>K.C</h3></div>
           <p class="para-member-role">기획</p>
-          <p class="para-member-bio">기획 파트로 참여하고 있습니다.</p>
+          <p class="para-member-bio">기획 파트로 참여하고 있습니다.</p><div class="member-mini-award muted"><b>수상/기록</b><span>아직 등록된 기록 없음</span></div>
         </div>
       </article>
     </div>
   </div>
 </section>
+
+<section id="member-awards-page" class="member-awards-page">
+  <div class="wrap">
+    <div class="section-title reveal">
+      <div class="eyebrow">수상 기록</div>
+      <h2>0기 기록</h2>
+      <p>0기 멤버들이 만든 수상, 대회, 외부 활동 기록을 모아둡니다.</p>
+    </div>
+
+    <div class="club-award-card reveal">
+      <div>
+        <span>BUILDS 0기</span>
+        <h3>0기 전체 기록</h3>
+        <p>아직 공식 수상은 없지만, Kaggle 제출 기록처럼 외부 플랫폼에서 확인 가능한 활동을 먼저 정리합니다.</p>
+      </div>
+      <ul>
+        <li><b>2026.07.01</b><span>Kaggle Titanic 생존자 예측 프로젝트 1476등</span><em>ganbi</em></li>
+      </ul>
+    </div>
+
+    <div class="member-award-grid reveal">
+      <article class="member-award-card active">
+        <div class="member-award-head">
+          <h3>ganbi</h3>
+          <span>1건</span>
+        </div>
+        <ul>
+          <li>
+            <time>2026.07.01</time>
+            <b>Kaggle Titanic 1476등</b>
+            <p>타이타닉 생존자 예측 프로젝트에서 점수 0.78947을 기록했습니다.</p>
+          </li>
+        </ul>
+      </article>
+
+      <article class="member-award-card">
+        <div class="member-award-head">
+          <h3>보네어</h3>
+          <span>준비 중</span>
+        </div>
+        <p class="empty-award">아직 등록된 수상 기록이 없습니다.</p>
+      </article>
+
+      <article class="member-award-card">
+        <div class="member-award-head">
+          <h3>louisuu</h3>
+          <span>준비 중</span>
+        </div>
+        <p class="empty-award">아직 등록된 수상 기록이 없습니다.</p>
+      </article>
+
+      <article class="member-award-card">
+        <div class="member-award-head">
+          <h3>뒤틀린황천의진윤태</h3>
+          <span>준비 중</span>
+        </div>
+        <p class="empty-award">아직 등록된 수상 기록이 없습니다.</p>
+      </article>
+
+      <article class="member-award-card">
+        <div class="member-award-head">
+          <h3>K.C</h3>
+          <span>준비 중</span>
+        </div>
+        <p class="empty-award">아직 등록된 수상 기록이 없습니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <footer><div class="wrap foot"><div class="logo"><svg class="mark" width="28" height="28" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</div><span class="foot-copy">© 2026 BUILDS. Built by 0기.</span></div></footer>
 
 <script>
