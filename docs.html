@@ -5383,26 +5383,202 @@ body::after{
 }
 </style>
 
+
+
+
+
+<style id="exact-original-header-footer-v1">
+.site-nav,.site-nav-wrap,.site-brand,.site-brand-mark,.site-menu,.site-menu-toggle{all:unset}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(251,248,243,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e7e2dc;
+  transform:none!important;
+  animation:none!important;
+}
+.nav .wrap{
+  width:min(1120px,calc(100% - 48px));
+  height:70px;
+  margin:0 auto;
+  padding:0!important;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#111;
+  text-decoration:none;
+  font-weight:800;
+  font-size:21px;
+  letter-spacing:-.3px;
+  white-space:nowrap;
+}
+.mark{
+  width:28px;
+  height:28px;
+  display:block;
+  flex-shrink:0;
+}
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  font-size:15px;
+  color:#555;
+}
+.menu a{
+  color:inherit;
+  text-decoration:none;
+  white-space:nowrap;
+  font-weight:inherit;
+  padding:0;
+  background:transparent;
+  border-radius:0;
+}
+.menu a:last-child{
+  background:#111;
+  color:#fff;
+  padding:11px 18px;
+  border-radius:8px;
+}
+.hamb{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid #e7e2dc;
+  background:#fff;
+  border-radius:10px;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-direction:column;
+}
+.hamb span{
+  width:18px;
+  height:2px;
+  background:#111;
+  border-radius:99px;
+  transition:.2s;
+}
+.nav.open .hamb span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.nav.open .hamb span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+footer{
+  padding:48px 0;
+  background:#111;
+  color:#777;
+  border-top:1px solid #222;
+}
+footer .wrap{
+  width:min(1120px,calc(100% - 48px));
+  margin:0 auto;
+  padding:0!important;
+}
+.foot{
+  display:flex;
+  justify-content:space-between;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.foot .logo{
+  color:#fff;
+  font-size:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.foot-copy{
+  display:block;
+  margin:0;
+  font-size:13px;
+  color:#666;
+}
+
+@media(max-width:1100px){
+  .menu{gap:18px;font-size:14px}
+}
+
+@media(max-width:900px){
+  .hamb{display:flex}
+  .menu{
+    display:none;
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:78px;
+    background:#fff;
+    border:1px solid #e7e2dc;
+    border-radius:18px;
+    padding:14px;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px;
+  }
+  .nav.open .menu{display:flex}
+  .menu a{
+    padding:13px 14px;
+    border-radius:10px;
+    position:relative;
+  }
+  .menu a:last-child{
+    text-align:center;
+    margin-top:6px;
+  }
+}
+
+@media(max-width:760px){
+  .nav .wrap,
+  footer .wrap{
+    width:min(100% - 32px,1120px);
+  }
+  .foot{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    text-align:left!important;
+  }
+}
+
+@media(max-width:520px){
+  .foot{
+    flex-direction:column!important;
+    align-items:flex-start!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="scrollbar"></div>
+
 <nav class="nav"><div class="wrap">
-  <a class="logo" href="index.html"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a>
+  <a class="logo" href="index.html"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="#ff4b24"/></svg>BUILDS</a>
   <button class="hamb" type="button" aria-label="메뉴 열기"><span></span><span></span></button>
   <div class="menu">
     <a href="index.html#about">소개</a>
-    <a href="members.html" target="_blank" rel="noopener">멤버</a>
+    <a href="members.html">멤버</a>
     <a href="index.html#fields">분야</a>
     <a href="index.html#timeline">활동</a>
-    <a href="index.html#awards">기록</a>
-    <a href="docs.html" target="_blank" rel="noopener">문서</a>
-    <a href="notice.html" target="_blank" rel="noopener">공지</a>
-    <a href="gallery.html" target="_blank" rel="noopener">갤러리</a>
+    <a href="awards.html">기록</a>
+    <a href="docs.html">문서</a>
+    <a href="notice.html">공지</a>
+    <a href="gallery.html">갤러리</a>
     <a href="index.html#works">작품</a>
+    <a href="achievements.html">도전과제</a>
     <a href="index.html#faq">FAQ</a>
     <a href="index.html#top">지원하기</a>
   </div>
 </div></nav>
+
 
 <section id="docs-page" class="docs-page para-page">
   <div class="wrap">
@@ -5410,7 +5586,7 @@ body::after{
       <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
       <span>문서</span>
       <h2>타이타닉 보고서</h2>
-      <p>Kaggle Titanic 프로젝트 진행 과정과 결과를 정리했습니다.</p>
+      <p>공개 가능한 문서와 보고서를 정리합니다.</p>
     </div>
 
     <div class="docs-layout">
@@ -5477,7 +5653,7 @@ body::after{
   </div>
 </section>
 
-<footer><div class="wrap foot"><div class="foot-brand"><a class="logo" href="#top"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#262626"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="var(--point)"/></svg>BUILDS</a><p class="foot-tag">만들면서 배우는 개발 동아리</p></div><div class="foot-right"><div class="links"><a href="#">instagram</a><a href="#">github</a><a href="#">blog</a></div><span class="foot-copy">© 2026 BUILDS</span></div></div></footer>
+<footer><div class="wrap foot"><div class="logo"><svg class="mark" width="28" height="28" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="#ff4b24"/></svg>BUILDS</div><span class="foot-copy">© 2026 BUILDS. Built by 0기.</span></div></footer>
 
 <script>
 const nav=document.querySelector('.nav');
@@ -5506,5 +5682,22 @@ const io=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal,.section-title,.faq-left').forEach(el=>io.observe(el));
 </script>
+
+
+
+
+<script id="exact-original-nav-script">
+(function(){
+  const nav=document.querySelector('.nav');
+  const hamb=document.querySelector('.hamb');
+  if(hamb && nav){
+    hamb.addEventListener('click',()=>nav.classList.toggle('open'));
+  }
+  document.querySelectorAll('.menu a').forEach(a=>{
+    a.addEventListener('click',()=>nav?.classList.remove('open'));
+  });
+})();
+</script>
+
 </body>
 </html>

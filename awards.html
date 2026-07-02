@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수상 기록 · BUILDS</title>
+<meta name="description" content="BUILDS의 연도별·분야별 수상 기록과 랭킹을 정리합니다.">
+<style>
+:root{
+  --bg:#f7f3ed;
+  --paper:#fffdf9;
+  --text:#111;
+  --sub:#6f6962;
+  --line:#e7ddd3;
+  --point:#ff4b24;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,sans-serif;
+  letter-spacing:-.02em;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(247,243,237,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(231,221,211,.85);
+}
+.nav .wrap{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:950;
+  letter-spacing:-.04em;
+}
+.mark{
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  background:#111;
+  color:#fff;
+  display:grid;
+  place-items:center;
+}
+.menu{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  font-weight:800;
+}
+.menu a:last-child{
+  background:#111;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:12px;
+}
+.hero{padding:92px 0 60px}
+.eyebrow{
+  color:var(--point);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.hero h1{
+  font-size:clamp(44px,7vw,82px);
+  line-height:.98;
+  letter-spacing:-.075em;
+  margin:0 0 20px;
+}
+.hero p{
+  max-width:700px;
+  color:var(--sub);
+  font-size:17px;
+  line-height:1.75;
+  margin:0;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:34px;
+}
+.stat{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+}
+.stat span{
+  display:block;
+  color:var(--sub);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.stat b{
+  display:block;
+  font-size:36px;
+  letter-spacing:-.06em;
+}
+.section{padding:44px 0 90px}
+.section-title{margin-bottom:22px}
+.section-title span{
+  display:block;
+  color:var(--point);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  margin-bottom:12px;
+}
+.section-title h2{
+  margin:0 0 10px;
+  font-size:34px;
+  letter-spacing:-.055em;
+}
+.section-title p{
+  margin:0;
+  color:var(--sub);
+  line-height:1.7;
+}
+.year-card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--paper);
+  margin-bottom:14px;
+}
+.year-head{
+  width:100%;
+  border:0;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 28px;
+  cursor:pointer;
+}
+.year-head b{
+  font-size:38px;
+  letter-spacing:-.055em;
+}
+.year-head i{
+  color:var(--point);
+  font-style:normal;
+  font-size:24px;
+  transition:transform .25s ease;
+}
+.year-card:not(.open) .year-head i{transform:rotate(-90deg)}
+.year-body{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .3s ease;
+}
+.year-card.open .year-body{grid-template-rows:1fr}
+.year-inner{overflow:hidden}
+.year-note{
+  margin:0 28px 18px;
+  padding:16px 18px;
+  border-radius:14px;
+  background:#fff8f3;
+  color:#5c554f;
+  font-size:14px;
+}
+.field-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  padding:0 28px 28px;
+}
+.field-card{
+  min-height:150px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:19px;
+  background:#fffdf9;
+}
+.field-card span{
+  display:block;
+  color:var(--sub);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+.field-card b{
+  display:block;
+  font-size:20px;
+  margin-bottom:8px;
+}
+.field-card p{
+  margin:0;
+  color:var(--sub);
+  font-size:14px;
+  line-height:1.6;
+}
+.rank-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:14px;
+}
+.panel{
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--paper);
+  padding:24px;
+}
+.panel h3{
+  margin:0 0 6px;
+  font-size:24px;
+  letter-spacing:-.045em;
+}
+.panel>p{
+  margin:0 0 20px;
+  color:var(--sub);
+  font-size:14px;
+}
+.rank-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.rank-row{
+  display:grid;
+  grid-template-columns:44px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+}
+.rank-row:first-child{border-top:0}
+.rank-num{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#f1ebe4;
+  font-size:13px;
+  font-weight:900;
+}
+.rank-row b{font-size:16px}
+.rank-row em{
+  color:var(--sub);
+  font-size:13px;
+  font-style:normal;
+  font-weight:800;
+}
+.empty{
+  padding:24px;
+  border:1px dashed #d8cdc2;
+  border-radius:16px;
+  color:var(--sub);
+  text-align:center;
+  line-height:1.65;
+}
+.money-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.money-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--paper);
+  padding:20px;
+}
+.money-card span{
+  display:block;
+  color:var(--sub);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.money-card b{
+  display:block;
+  font-size:26px;
+  letter-spacing:-.05em;
+}
+.mvp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.mvp-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--paper);
+  padding:20px;
+  min-height:150px;
+}
+.mvp-card span{
+  display:block;
+  color:var(--point);
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+.mvp-card b{
+  display:block;
+  font-size:21px;
+  margin-bottom:8px;
+}
+.mvp-card p{
+  margin:0;
+  color:var(--sub);
+  font-size:14px;
+  line-height:1.6;
+}
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0 40px;
+  color:var(--sub);
+  font-size:13px;
+}
+@media(max-width:900px){
+  .stats,.money-grid{grid-template-columns:repeat(2,1fr)}
+  .field-grid,.mvp-grid{grid-template-columns:1fr 1fr}
+  .rank-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .menu{display:none}
+  .hero{padding:70px 0 48px}
+  .stats,.money-grid,.field-grid,.mvp-grid{grid-template-columns:1fr}
+  .year-head{padding:20px}
+  .year-head b{font-size:30px}
+  .year-note{margin:0 20px 16px}
+  .field-grid{padding:0 20px 20px}
+}
+</style>
+
+
+
+
+<style id="exact-original-header-footer-v1">
+.site-nav,.site-nav-wrap,.site-brand,.site-brand-mark,.site-menu,.site-menu-toggle{all:unset}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(251,248,243,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e7e2dc;
+  transform:none!important;
+  animation:none!important;
+}
+.nav .wrap{
+  width:min(1120px,calc(100% - 48px));
+  height:70px;
+  margin:0 auto;
+  padding:0!important;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#111;
+  text-decoration:none;
+  font-weight:800;
+  font-size:21px;
+  letter-spacing:-.3px;
+  white-space:nowrap;
+}
+.mark{
+  width:28px;
+  height:28px;
+  display:block;
+  flex-shrink:0;
+}
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  font-size:15px;
+  color:#555;
+}
+.menu a{
+  color:inherit;
+  text-decoration:none;
+  white-space:nowrap;
+  font-weight:inherit;
+  padding:0;
+  background:transparent;
+  border-radius:0;
+}
+.menu a:last-child{
+  background:#111;
+  color:#fff;
+  padding:11px 18px;
+  border-radius:8px;
+}
+.hamb{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid #e7e2dc;
+  background:#fff;
+  border-radius:10px;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-direction:column;
+}
+.hamb span{
+  width:18px;
+  height:2px;
+  background:#111;
+  border-radius:99px;
+  transition:.2s;
+}
+.nav.open .hamb span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.nav.open .hamb span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+footer{
+  padding:48px 0;
+  background:#111;
+  color:#777;
+  border-top:1px solid #222;
+}
+footer .wrap{
+  width:min(1120px,calc(100% - 48px));
+  margin:0 auto;
+  padding:0!important;
+}
+.foot{
+  display:flex;
+  justify-content:space-between;
+  gap:28px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.foot .logo{
+  color:#fff;
+  font-size:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.foot-copy{
+  display:block;
+  margin:0;
+  font-size:13px;
+  color:#666;
+}
+
+@media(max-width:1100px){
+  .menu{gap:18px;font-size:14px}
+}
+
+@media(max-width:900px){
+  .hamb{display:flex}
+  .menu{
+    display:none;
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:78px;
+    background:#fff;
+    border:1px solid #e7e2dc;
+    border-radius:18px;
+    padding:14px;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px;
+  }
+  .nav.open .menu{display:flex}
+  .menu a{
+    padding:13px 14px;
+    border-radius:10px;
+    position:relative;
+  }
+  .menu a:last-child{
+    text-align:center;
+    margin-top:6px;
+  }
+}
+
+@media(max-width:760px){
+  .nav .wrap,
+  footer .wrap{
+    width:min(100% - 32px,1120px);
+  }
+  .foot{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    text-align:left!important;
+  }
+}
+
+@media(max-width:520px){
+  .foot{
+    flex-direction:column!important;
+    align-items:flex-start!important;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="#ff4b24"/></svg>BUILDS</a>
+  <button class="hamb" type="button" aria-label="메뉴 열기"><span></span><span></span></button>
+  <div class="menu">
+    <a href="index.html#about">소개</a>
+    <a href="members.html">멤버</a>
+    <a href="index.html#fields">분야</a>
+    <a href="index.html#timeline">활동</a>
+    <a href="awards.html">기록</a>
+    <a href="docs.html">문서</a>
+    <a href="notice.html">공지</a>
+    <a href="gallery.html">갤러리</a>
+    <a href="index.html#works">작품</a>
+    <a href="achievements.html">도전과제</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#top">지원하기</a>
+  </div>
+</div></nav>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Awards & Records</div>
+    <h1>수상 기록</h1>
+    <p>공식 수상과 상금만 집계합니다. 참가 기록, 순위 기록, 자격증, 프로젝트 공개는 별도 업적으로 관리합니다.</p>
+    <div class="stats">
+      <article class="stat"><span>누적 수상</span><b>0개</b></article>
+      <article class="stat"><span>누적 상금</span><b>0원</b></article>
+      <article class="stat"><span>집계 연도</span><b>2026</b></article>
+      <article class="stat"><span>현재 랭킹</span><b>집계 전</b></article>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <span>YEARLY RECORDS</span>
+        <h2>연도별 수상 기록</h2>
+        <p>연도별로 먼저 구분한 뒤, 각 연도 안에서 분야별로 정리합니다.</p>
+      </div>
+
+      <article class="year-card open">
+        <button class="year-head" type="button">
+          <b>2026</b>
+          <i>⌄</i>
+        </button>
+        <div class="year-body">
+          <div class="year-inner">
+            <p class="year-note">2026년 현재 등록된 공식 수상 기록은 없습니다.</p>
+            <div class="field-grid">
+              <article class="field-card"><span>01</span><b>기술 제작</b><p>프로그램, 웹·앱, 게임, 하드웨어 분야</p></article>
+              <article class="field-card"><span>02</span><b>AI·데이터</b><p>인공지능, 데이터 분석, 알고리즘 분야</p></article>
+              <article class="field-card"><span>03</span><b>보안</b><p>CTF, 정보보호, 보안 경진대회 분야</p></article>
+              <article class="field-card"><span>04</span><b>창업·아이디어</b><p>창업, 비즈니스, 서비스 기획, 정책 제안 분야</p></article>
+              <article class="field-card"><span>05</span><b>디자인·콘텐츠</b><p>UI·UX, 브랜딩, 포스터, 콘텐츠 제작 분야</p></article>
+              <article class="field-card"><span>06</span><b>문학·연구</b><p>글쓰기, 에세이, 논문, 연구 발표 분야</p></article>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <span>RANKING</span>
+        <h2>업적 랭킹</h2>
+        <p>공식 수상 기록을 기준으로 집계합니다.</p>
+      </div>
+
+      <div class="rank-grid">
+        <article class="panel">
+          <h3>누적 수상 TOP 5</h3>
+          <p>부원별 공식 수상 개수 순위</p>
+          <div class="empty">등록된 수상 기록이 없어 아직 순위를 집계하지 않습니다.</div>
+        </article>
+
+        <article class="panel">
+          <h3>종합 업적 랭킹</h3>
+          <p>수상 등급별 점수를 합산한 순위</p>
+          <div class="empty">첫 공식 수상이 등록된 뒤 집계를 시작합니다.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <span>HIGHLIGHTS</span>
+        <h2>연도별·분야별 기록</h2>
+        <p>MVP와 분야별 최다 수상자는 기록이 생긴 뒤 표시합니다.</p>
+      </div>
+
+      <div class="mvp-grid">
+        <article class="mvp-card">
+          <span>2026 MVP</span>
+          <b>집계 전</b>
+          <p>해당 연도에 가장 많은 공식 성과를 남긴 부원</p>
+        </article>
+        <article class="mvp-card">
+          <span>분야별 최다 수상</span>
+          <b>집계 전</b>
+          <p>각 분야에서 가장 많은 수상을 기록한 부원</p>
+        </article>
+        <article class="mvp-card">
+          <span>최고 단일 성과</span>
+          <b>집계 전</b>
+          <p>해당 연도의 가장 높은 공식 수상 기록</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <span>PRIZE MONEY</span>
+        <h2>상금 기록</h2>
+        <p>현금, 상품권, 현물, 지원금을 나누어 집계합니다.</p>
+      </div>
+
+      <div class="money-grid">
+        <article class="money-card"><span>현금 상금</span><b>0원</b></article>
+        <article class="money-card"><span>상품권</span><b>0원</b></article>
+        <article class="money-card"><span>현물</span><b>0건</b></article>
+        <article class="money-card"><span>지원금</span><b>0원</b></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <span>PERSONAL RECORDS</span>
+        <h2>개인별 상금</h2>
+        <p>공식 수상에 따라 지급된 개인 상금만 기록합니다.</p>
+      </div>
+      <div class="empty">현재 등록된 개인별 상금 기록이 없습니다.</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap foot"><div class="logo"><svg class="mark" width="28" height="28" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="7" fill="#111"/><path d="M10 10 L15 15 L10 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.5" y="18" width="6" height="2.4" rx="1.2" fill="#ff4b24"/></svg>BUILDS</div><span class="foot-copy">© 2026 BUILDS. Built by 0기.</span></div></footer>
+
+<script>
+document.querySelectorAll('.year-head').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.year-card');
+    if(item) item.classList.toggle('open');
+  });
+});
+</script>
+
+
+
+
+<script id="exact-original-nav-script">
+(function(){
+  const nav=document.querySelector('.nav');
+  const hamb=document.querySelector('.hamb');
+  if(hamb && nav){
+    hamb.addEventListener('click',()=>nav.classList.toggle('open'));
+  }
+  document.querySelectorAll('.menu a').forEach(a=>{
+    a.addEventListener('click',()=>nav?.classList.remove('open'));
+  });
+})();
+</script>
+
+</body>
+</html>
